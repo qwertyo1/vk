@@ -45,7 +45,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/gifts.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<GiftItem> Get(long userId, int? count = null, int? offset = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);

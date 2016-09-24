@@ -1,4 +1,5 @@
-﻿using VkNet.Utils;
+﻿using System.Runtime.Serialization;
+using VkNet.Utils;
 
 namespace VkNet.Model
 {
@@ -10,7 +11,7 @@ namespace VkNet.Model
     /// <remarks>
     /// Страница документации ВКонтакте <see href="http://vk.com/dev/database.getCities"/>.
     /// </remarks>
-    [Serializable]
+    [DataContract]
     public class City
     {
         /// <summary>

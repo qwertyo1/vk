@@ -1,4 +1,6 @@
-﻿namespace VkNet.Utils
+﻿using System.Collections.Generic;
+
+namespace VkNet.Utils
 {
 	using System;
 	using System.Collections;
@@ -43,12 +45,17 @@
 		/// </summary>
 		private void BugFixCookieDomain()
 		{
-			var table =
-				(Hashtable)
-					Container.GetType()
-						.InvokeMember("m_domainTable", BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.Instance, null, Container, new object[] { });
-
-			foreach (var key in table.Keys.OfType<string>().ToList())
+            //var table =
+            //    (Dictionary<string, string>)
+            //        Container.GetType()
+            //            .InvokeMember("m_domainTable", BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.Instance, null, Container, new object[] { });
+            var props = (Dictionary<string, string>)Container.GetType()
+                .GetTypeInfo()
+                .DeclaredFields
+                .Where(x => !x.IsPublic);
+            foreach (var key in props
+                .Keys
+                .ToList())
 			{
 				if (key[0] != '.')
 				{
@@ -56,11 +63,11 @@
 				}
 
 				var newKey = key.Remove(0, 1);
-				if (!table.ContainsKey(newKey))
+				if (!props.ContainsKey(newKey))
 				{
-					table[newKey] = table[key];
+                    props[newKey] = props[key];
 				}
 			}
 		}
-	}
+    }
 }

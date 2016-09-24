@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
 
@@ -7,7 +9,7 @@
     /// <summary>
     /// Контакты группы
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Contact
     {
         /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 using VkNet.Categories;
 using VkNet.Utils;
 
@@ -12,7 +13,7 @@ namespace VkNet.Model.Attachments
     /// См. описание <see href="http://vk.com/dev/video_object"/>.
     /// </remarks>
     [DebuggerDisplay("Id = {Id}, Title = {Title}")]
-	[Serializable]
+	[DataContract]
 	public class Video : MediaAttachment
     {
 		/// <summary>
@@ -44,17 +45,17 @@ namespace VkNet.Model.Attachments
         public string Link { get; set; }
 
         /// <summary>
-        /// Url изображения-обложки ролика с размером 130x98px.
+        /// Uri изображения-обложки ролика с размером 130x98px.
         /// </summary>
         public Uri Photo130 { get; set; }
 
         /// <summary>
-        /// Url изображения-обложки ролика с размером 320x240px.
+        /// Uri изображения-обложки ролика с размером 320x240px.
         /// </summary>
         public Uri Photo320 { get; set; }
 
         /// <summary>
-        /// Url изображения-обложки ролика с размером 640x480px (если размер есть).
+        /// Uri изображения-обложки ролика с размером 640x480px (если размер есть).
         /// </summary>
         public Uri Photo640 { get; set; }
 
@@ -105,7 +106,7 @@ namespace VkNet.Model.Attachments
         public long? AlbumId { get; set; }
 
         /// <summary>
-        /// Url, по которому необходимо выполнить загрузку видеов (см. метод <see cref="VideoCategory.Save"/>).
+        /// Uri, по которому необходимо выполнить загрузку видеов (см. метод <see cref="VideoCategory.Save"/>).
         /// </summary>
         public Uri UploadUrl { get; set; }
 

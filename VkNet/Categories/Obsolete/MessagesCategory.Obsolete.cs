@@ -40,7 +40,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод Get(MessagesGetParams @params)")]
 		public ReadOnlyCollection<Message> Get(
 			MessageType type,
@@ -83,7 +83,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getHistory" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод GetHistory(MessagesGetParams @params)")]
 		public ReadOnlyCollection<Message> GetHistory(out int totalCount, bool isChat, long id, int? offset = null, uint? count = 20,
 			long? startMessageId = null, bool inReverse = false)
@@ -129,7 +129,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getDialogs" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод GetDialogs(DialogsGetParams @params)")]
 		public ReadOnlyCollection<Message> GetDialogs(out int totalCount, out int unreadCount, uint count = 20, int? offset = null, bool unread = false, long? startMessageId = null, uint? previewLength = null)
 		{
@@ -170,7 +170,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.search"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод Search(out int totalCount, [NotNull] string query, long? previewLength, long? offset, long? count)")]
 		public ReadOnlyCollection<Message> Search([NotNull] string query, out int totalCount, int? count = null, int? offset = null)
 		{
@@ -285,7 +285,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages"/>.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.markAsRead"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод MarkAsRead(IEnumerable<long> messageIds, string peerId, long? startMessageId)")]
 		public bool MarkAsRead(IEnumerable<long> messageIds)
 		{
@@ -322,7 +322,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getChatUsers"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод GetChatUsers(IEnumerable<long> chatIds, UsersFields fields, NameCase nameCase)")]
 		public ReadOnlyCollection<User> GetChatUsers(long chatId, UsersFields fields)
 		{
@@ -359,7 +359,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getById"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод GetById([NotNull] IEnumerable<ulong> messageIds, uint? previewLength = null)")]
 		public ReadOnlyCollection<Message> GetById(out int totalCount, [NotNull] IEnumerable<ulong> messageIds, uint? previewLength = null)
 		{
@@ -384,7 +384,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Устаревшая версия API. Используйте метод Search([NotNull] string query, long? previewLength, long? offset, long? count)")]
 		public ReadOnlyCollection<Message> Search(out int totalCount, [NotNull] string query, long? previewLength, long? offset, long? count)
 		{

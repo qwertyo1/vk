@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Net;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils;
 #if WINDOWS_PHONE
 	using System.Net;
 #else
-	using System.Web;
+	
 #endif
 namespace VkNet.Model.RequestParams
 {
@@ -76,7 +77,7 @@ namespace VkNet.Model.RequestParams
 		{
 			var parameters = new VkParameters
 			{
-				{ "q", HttpUtility.UrlEncode(p.Query) },
+				{ "q", WebUtility.UrlEncode(p.Query) },
 				{ "lat", p.Latitude },
 				{ "long", p.Longitude },
 				{ "start_time", p.StartTime },

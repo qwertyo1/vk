@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model.Attachments
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model.Attachments
 {
     using System;
     using System.Collections.ObjectModel;
@@ -8,7 +10,7 @@
 	/// <summary>
 	/// Запись на стене.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Wall : MediaAttachment
     {
 		/// <summary>

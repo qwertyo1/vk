@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace VkNet.Model
 {
 	using System;
@@ -9,7 +11,7 @@ namespace VkNet.Model
 	/// Отметка к видеозаписи.
 	/// </summary>
 	[DebuggerDisplay("Id = {Id}, TaggedName = {TaggedName}")]
-	[Serializable]
+	[DataContract]
 	public class Tag
 	{
 		/// <summary>

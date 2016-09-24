@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Enums;
 using VkNet.Utils;
 
@@ -8,7 +9,7 @@ namespace VkNet.Model.Attachments
 	/// Аудиозапись пользователя или группы.
 	/// См. описание <see href="http://vk.com/dev/audio_object"/>.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Audio : MediaAttachment
 	{
 		static Audio()

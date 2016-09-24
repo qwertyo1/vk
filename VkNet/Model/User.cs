@@ -1,4 +1,5 @@
-﻿using VkNet.Enums.SafetyEnums;
+﻿using System.Runtime.Serialization;
+using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model
 {
@@ -16,7 +17,7 @@ namespace VkNet.Model
 	/// См. описание <see href="http://vk.com/dev/fields"/> и <see href="http://vk.com/pages?oid=-1&amp;p=users.get"/>.
 	/// </summary>
 	[DebuggerDisplay("[{Id}] {FirstName} {LastName}")]
-	[Serializable]
+	[DataContract]
 	public class User
 	{
 		#region Стандартные поля

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace VkNet.Model
 {
@@ -16,7 +17,7 @@ namespace VkNet.Model
     /// См. описание <see href="http://vk.com/dev/fields_groups"/>.
     /// </summary>
     [DebuggerDisplay("[{Id}] {Name}")]
-    [Serializable]
+    [DataContract]
     public class Group : IVkModel
 	{
         /// <summary>

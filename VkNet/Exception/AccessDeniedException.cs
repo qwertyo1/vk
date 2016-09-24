@@ -6,7 +6,7 @@
     /// <summary>
     /// Исключение, которое выбрасывается при отказе в доступе на выполнение операции сервером ВКонтакте.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class AccessDeniedException : VkApiMethodInvokeException
     {
         /// <summary>
@@ -52,14 +52,14 @@
         {
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="AccessDeniedException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected AccessDeniedException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="AccessDeniedException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected AccessDeniedException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+        //}
     }
 }

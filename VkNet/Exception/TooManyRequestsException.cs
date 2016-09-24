@@ -9,7 +9,7 @@
     /// с одним и тем же именем). Если это ограничение превышается, то сервер ВКонтакте возвращает ошибку с кодом 6 -
     /// Too many requests per second.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class TooManyRequestsException : VkApiMethodInvokeException
     {
         /// <summary>
@@ -45,14 +45,14 @@
         {
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="TooManyRequestsException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected TooManyRequestsException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="TooManyRequestsException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected TooManyRequestsException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+        //}
     }
 }

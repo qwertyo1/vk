@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
 {
 	[Obsolete("Для версии API ниже 5.0")]
-	[Serializable]
+	[DataContract]
 	public class PhotosList : MediaAttachment
     {
         static PhotosList()

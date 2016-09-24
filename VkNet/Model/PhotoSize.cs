@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Security.Policy;
+using System.Runtime.Serialization;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils;
 
@@ -8,13 +8,13 @@ namespace VkNet.Model
 	/// <summary>
 	/// Формат описания размеров фотографи.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class PhotoSize
 	{
 		/// <summary>
-		/// Url копии изображения.
+		/// Uri копии изображения.
 		/// </summary>
-		public Url Src
+		public Uri Src
 		{ get; set; }
 
 		/// <summary>
@@ -44,7 +44,7 @@ namespace VkNet.Model
 		{
 			var giftItem = new PhotoSize
 			{
-				Src = new Url(response["src"]),
+				Src = new Uri(response["src"]),
 				Width = response["width"],
 				Height = response["height"],
 				Type = response["type"]

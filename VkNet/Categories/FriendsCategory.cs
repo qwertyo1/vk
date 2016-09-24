@@ -19,7 +19,7 @@
 	{
 		private readonly VkApi _vk;
 
-		internal FriendsCategory(VkApi vk)
+	    public FriendsCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -36,7 +36,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> Get(FriendsGetParams @params, bool skipAuthorization = true)
 		{
 			return _vk.Call("friends.get", @params, skipAuthorization).ToVkCollectionOf(x => @params.Fields != null ? x : new User { Id = x });
@@ -51,7 +51,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getAppUsers" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Pure]
 		public ReadOnlyCollection<long> GetAppUsers()
 		{
@@ -70,7 +70,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getOnline" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<long> GetOnline(FriendsGetOnlineParams @params)
 		{
 			@params.OnlineMobile = false;
@@ -89,7 +89,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getOnline" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public FriendOnline GetOnlineEx(FriendsGetOnlineParams @params)
 		{
 			@params.OnlineMobile = true;
@@ -106,7 +106,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getMutual" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<long> GetMutual(FriendsGetMutualParams @params)
 		{
 			VkResponseArray response = _vk.Call("friends.getMutual", @params);
@@ -138,7 +138,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.areFriends" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Pure]
 		public IDictionary<long, FriendStatus> AreFriends([NotNull]IEnumerable<long> userIds, bool? needSign = null)
 		{
@@ -182,7 +182,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.addList" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long AddList(string name, IEnumerable<long> userIds)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => name);
@@ -208,7 +208,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.deleteList" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteList(long listId)
 		{
 			var parameters = new VkParameters {
@@ -232,7 +232,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getLists" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<FriendList> GetLists(long? userId = null, bool? returnSystem = null)
 		{
 			var parameters = new VkParameters {
@@ -257,7 +257,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.editList" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool EditList(long listId, string name = null, IEnumerable<long> userIds = null, IEnumerable<long> addUserIds = null, IEnumerable<long> deleteUserIds = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => listId);
@@ -282,7 +282,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.deleteAllRequests" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteAllRequests()
 		{
 			return _vk.Call("friends.deleteAllRequests", VkParameters.Empty);
@@ -306,7 +306,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.add" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public AddFriendStatus Add(long userId, string text = "", bool? follow = null, long? captchaSid = null, string captchaKey = null)
 		{
 			var parameters = new VkParameters {
@@ -342,7 +342,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.delete" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public DeleteFriendStatus Delete(long userId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -365,7 +365,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.edit" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Edit(long userId, IEnumerable<long> listIds)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -388,7 +388,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getRecent" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<long> GetRecent(long? count = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => count);
@@ -412,7 +412,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getRequests" />.
 		/// </remarks>
-		[ApiVersion("5.44")] // TODO IDictionary<long, FriendStatus>
+		 // TODO IDictionary<long, FriendStatus>
 		public IDictionary<long, ReadOnlyCollection<long>> GetRequests(FriendsGetRequestsParams @params)
 		{
 			VkResponseArray response = _vk.Call("friends.getRequests", @params);
@@ -446,7 +446,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getSuggestions" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> GetSuggestions(FriendsFilter filter = null, long? count = null, long? offset = null, UsersFields fields = null, NameCase nameCase = null)
 		{
 			var parameters = new VkParameters {
@@ -474,7 +474,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getByPhones" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<User> GetByPhones(IEnumerable<string> phones, ProfileFields fields)
 		{
 			var parameters = new VkParameters {
@@ -499,7 +499,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.getAvailableForCall" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> GetAvailableForCall(ProfileFields fields, NameCase nameCase)
 		{
 			var parameters = new VkParameters {
@@ -520,7 +520,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/friends.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> Search(FriendsSearchParams @params)
 		{
 			return _vk.Call("friends.search", @params).ToVkCollectionOf<User>(x => x);

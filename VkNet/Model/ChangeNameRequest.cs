@@ -1,5 +1,6 @@
 ﻿using VkNet.Utils;
 using System;
+using System.Runtime.Serialization;
 using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model
@@ -7,7 +8,7 @@ namespace VkNet.Model
     /// <summary>
     /// Информация о заявке на смену имени.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class ChangeNameRequest
 	{
 		/// <summary>

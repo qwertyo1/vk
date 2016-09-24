@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Enums;
 using VkNet.Utils;
 
@@ -8,7 +9,7 @@ namespace VkNet.Model.Attachments
 	/// Информация о вики-странице сообщества.
 	/// См. описание <see href="http://vk.com/dev/pages.get"/>.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Page : MediaAttachment
     {
 		/// <summary>

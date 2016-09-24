@@ -1,4 +1,4 @@
-﻿using System.Web;
+﻿using System.Net;
 using VkNet.Utils;
 
 namespace VkNet.Categories
@@ -38,7 +38,7 @@ namespace VkNet.Categories
 		/// </remarks>
 		public VkResponse Execute(string code)
 		{
-			return _vk.Call("execute", new VkParameters { { "code", HttpUtility.UrlEncode(code) } });
+			return _vk.Call("execute", new VkParameters { { "code", WebUtility.UrlEncode(code) } });
 		}
 	}
 }

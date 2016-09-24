@@ -6,7 +6,7 @@
     /// <summary>
     /// Базовый класс для всех исключений, выбрасываемых библиотекой.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class VkApiException : Exception
     {
         /// <summary>
@@ -33,14 +33,14 @@
         {
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="VkApiException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected VkApiException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="VkApiException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected VkApiException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+        //}
     }
 }

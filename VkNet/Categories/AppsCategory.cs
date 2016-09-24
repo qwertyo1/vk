@@ -70,7 +70,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.sendRequest" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long SendRequest(AppSendRequestParams @params)
 		{
 			return _vk.Call("apps.sendRequest", @params);
@@ -85,7 +85,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.deleteAppRequests" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteAppRequests()
 		{
 			return _vk.Call("apps.deleteAppRequests", VkParameters.Empty);
@@ -107,7 +107,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.getFriendsList" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> GetFriendsList(AppRequestType type, bool? extended = null, long? count = null, long? offset = null, UsersFields fields = null)
 		{
 			var parameters = new VkParameters
@@ -141,7 +141,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.getLeaderboard" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool GetLeaderboard(AppRatingType type, bool? global = null, bool? extended = null)
 		{
 			//var parameters = new VkParameters
@@ -164,7 +164,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.getScore" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long GetScore(long userId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace VkNet.Enums
 {
 	/// <summary>
 	/// Режим доступа к странице
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public enum PageAccessKind
     {
         /// <summary>

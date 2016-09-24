@@ -35,7 +35,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/audio.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Get(out User user, AudioGetParams @params)")]
 		public ReadOnlyCollection<Audio> GetFromGroup(long gid, long? albumId = null, IEnumerable<long> aids = null, uint? count = null, uint? offset = null)
 		{
@@ -60,7 +60,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/audio.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Get(out User user, AudioGetParams @params)")]
 		public ReadOnlyCollection<Audio> Get(long uid, out User user, long? albumId = null, IEnumerable<long> aids = null, uint? count = null, uint? offset = null)
 		{
@@ -81,7 +81,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/audio.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Get(out User user, AudioGetParams @params)")]
 		public ReadOnlyCollection<Audio> Get(long uid, long? albumId = null, IEnumerable<long> aids = null, uint? count = null, uint? offset = null)
 		{
@@ -102,7 +102,7 @@ namespace VkNet.Categories
 		/// <param name="offset">Смещение относительно первой найденной аудиозаписи (для выборки определенного подмножества).</param>
 		/// <returns></returns>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Get(out User user, AudioGetParams @params)")]
 		private ReadOnlyCollection<Audio> InternalGet(
 			string paramId,
@@ -217,7 +217,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Audio"/>.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/audio.search"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Search(AudioSearchParams @params)")]
 		public ReadOnlyCollection<Audio> Search(AudioSearchParams @params, out long totalCount)
 		{

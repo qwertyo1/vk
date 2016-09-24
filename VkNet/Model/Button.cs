@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model
@@ -6,7 +7,7 @@ namespace VkNet.Model
 	/// <summary>
 	/// Кнопка.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Button
 	{
 		/// <summary>
@@ -17,7 +18,7 @@ namespace VkNet.Model
 		/// <summary>
 		/// Ссылка на которую ведет кнопка.
 		/// </summary>
-		public Uri Url { get; set; }
+		public Uri Uri { get; set; }
 
 		/// <summary>
 		/// Разобрать из json.
@@ -29,7 +30,7 @@ namespace VkNet.Model
 			var button = new Button
 			{
 				Title = response["title"],
-				Url = response["url"]
+				Uri = response["url"]
 			};
 
 			return button;

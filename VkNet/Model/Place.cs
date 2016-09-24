@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
 
@@ -9,7 +11,7 @@
     /// Информация о месте, в котором была сделана запись.
     /// См. описание <see href="http://vk.com/pages?oid=-1&amp;p=Описание_поля_geo"/> и <see href="http://vk.com/dev/fields_groups"/>. Раздел place.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Place
     {
         /// <summary>

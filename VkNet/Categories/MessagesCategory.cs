@@ -8,7 +8,7 @@ namespace VkNet.Categories
 #if WINDOWS_PHONE
 	using System.Net;
 #else
-	using System.Web;
+	using System.Net;
 
 #endif
 
@@ -35,7 +35,7 @@ namespace VkNet.Categories
 		/// Методы для работы с сообщениями.
 		/// </summary>
 		/// <param name="vk">API</param>
-		internal MessagesCategory(VkApi vk)
+		public MessagesCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -50,7 +50,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public MessagesGetObject Get(MessagesGetParams @params)
 		{
 			return _vk.Call("messages.get", @params);
@@ -66,7 +66,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getHistory" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public MessagesGetObject GetHistory(MessagesGetHistoryParams @params)
 		{
 			return _vk.Call("messages.getHistory", @params);
@@ -87,7 +87,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getById" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Message> GetById([NotNull] IEnumerable<ulong> messageIds, uint? previewLength = null)
 		{
 			if (!messageIds.Any())
@@ -116,7 +116,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getById"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public Message GetById(ulong messageId, uint? previewLength = null)
 		{
 			var result = GetById(new[] { messageId }, previewLength);
@@ -133,7 +133,7 @@ namespace VkNet.Categories
 		/// <param name="params">Входные параметры выборки.</param>
 		/// <returns>В случае успеха возвращает список диалогов пользователя</returns>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public MessagesGetObject GetDialogs(MessagesDialogsGetParams @params)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => @params.Count);
@@ -155,7 +155,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.searchDialogs" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public SearchDialogsResponse SearchDialogs(string query, ProfileFields fields = null, uint? limit = null)
 		{
 			var parameters = new VkParameters
@@ -182,7 +182,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Message> Search([NotNull] string query, long? previewLength, long? offset, long? count)
 		{
 			if (string.IsNullOrWhiteSpace(query))
@@ -212,7 +212,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages" />.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.send" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Send(MessagesSendParams @params)
 		{
 			if (string.IsNullOrEmpty(@params.Message))
@@ -241,7 +241,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages"/>.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.deleteDialog"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteDialog(long userId, bool isChat, long? peerId = null, uint? offset = null, uint? count = null)
 		{
 			var parameters = new VkParameters
@@ -272,7 +272,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages" />.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.delete" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public IDictionary<ulong, bool> Delete(IEnumerable<ulong> messageIds)
 		{
 			if (messageIds == null)
@@ -312,7 +312,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages" />.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.delete" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Delete(ulong messageId)
 		{
 			var result = Delete(new[] { messageId });
@@ -327,7 +327,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages"/>.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.restore"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Restore(ulong messageId)
 		{
 			var parameters = new VkParameters
@@ -350,7 +350,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.markAsRead" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool MarkAsRead(IEnumerable<long> messageIds, string peerId, long? startMessageId = null)
 		{
 			var parameters = new VkParameters {
@@ -374,7 +374,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages"/>.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.setActivity"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool SetActivity(long userId, long? peerId = null)
 		{
 			var parameters = new VkParameters
@@ -400,7 +400,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getLastActivity" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public LastActivity GetLastActivity(long userId)
 		{
 			var parameters = new VkParameters
@@ -443,7 +443,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getChat" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<Chat> GetChat(IEnumerable<long> chatIds, ProfileFields fields = null, NameCase nameCase = null)
 		{
 			var isNoEmpty = chatIds == null || !chatIds.Any();
@@ -479,7 +479,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.createChat" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long CreateChat(IEnumerable<ulong> userIds, [NotNull] string title)
 		{
 			if (string.IsNullOrEmpty(title))
@@ -507,7 +507,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.editChat" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool EditChat(long chatId, [NotNull] string title)
 		{
 			if (string.IsNullOrEmpty(title))
@@ -538,7 +538,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getChatUsers" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<User> GetChatUsers(IEnumerable<long> chatIds, UsersFields fields, NameCase nameCase)
 		{
 			var parameters = new VkParameters {
@@ -579,7 +579,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.addChatUser" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool AddChatUser(long chatId, long userId)
 		{
 			var parameters = new VkParameters { { "chat_id", chatId }, { "user_id", userId } };
@@ -598,7 +598,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.removeChatUser" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool RemoveChatUser(long chatId, long userId)
 		{
 			var parameters = new VkParameters {
@@ -624,7 +624,7 @@ namespace VkNet.Categories
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getLongPollServer" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public LongPollServerResponse GetLongPollServer(bool useSsl = false, bool needPts = false)
 		{
 			var parameters = new VkParameters
@@ -646,7 +646,7 @@ namespace VkNet.Categories
 		/// Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей <see cref="Settings.Messages" />.
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getLongPollHistory" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public LongPollHistoryResponse GetLongPollHistory(MessagesGetLongPollHistoryParams @params)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => @params.PreviewLength);
@@ -670,7 +670,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.deleteChatPhoto" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public Chat DeleteChatPhoto(out ulong messageId, ulong chatId)
 		{
 			var parameters = new VkParameters
@@ -695,7 +695,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.setChatPhoto" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long SetChatPhoto(out long messageId, string file)
 		{
 			var parameters = new VkParameters
@@ -718,7 +718,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.markAsImportant" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<long> MarkAsImportant(IEnumerable<long> messageIds, bool important = true)
 		{
 			var parameters = new VkParameters
@@ -741,7 +741,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.sendSticker" />.
 		/// </remarks>
-		[ApiVersion("5.50")]
+		
 		public long SendSticker(MessagesSendStickerParams @params)
 		{
 			var parameters = @params;
@@ -766,7 +766,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/messages.getHistoryAttachments" />.
 		/// </remarks>
-		[ApiVersion("5.50")]
+		
 		public ReadOnlyCollection<Attachment> GetHistoryAttachments(MessagesGetHistoryAttachmentsParams @params, out string nextFrom)
 		{
 			var result = _vk.Call("messages.getHistoryAttachments", @params);

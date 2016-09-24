@@ -1,4 +1,7 @@
-﻿namespace VkNet.Utils
+﻿using System.Reflection;
+using System.Runtime.Serialization;
+
+namespace VkNet.Utils
 {
     using System;
     using System.Collections.Generic;
@@ -6,7 +9,7 @@
     /// <summary>
     /// Параметры запроса к ВКонтакте.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public partial class VkParameters : Dictionary<string, string>
     {
         /// <summary>
@@ -46,7 +49,7 @@
                 return;
             }
 
-            if (typeof(T).IsEnum)
+            if (typeof(T).GetTypeInfo().IsEnum)
             {
                 Add(name, (int)(object)value);
                 return;

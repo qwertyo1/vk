@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime.Serialization;
+
 namespace VkNet.Model
 {
     using System;
@@ -14,7 +16,7 @@ namespace VkNet.Model
     /// Страница документации ВКонтакте <see href="http://vk.com/dev/groups.getBanned"/>.
     /// </remarks>
     [DebuggerDisplay("[{AdminId}] {Comment} ({Reason})")]
-    [Serializable]
+    [DataContract]
     public class BanInfo
     {
         /// <summary>

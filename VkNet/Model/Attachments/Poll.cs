@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -8,7 +9,7 @@ namespace VkNet.Model.Attachments
 	/// Опрос.
 	/// См. описание <see href="http://vk.com/dev/attachments_w"/>. Раздел "Опрос".
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Poll : MediaAttachment
     {
 		/// <summary>

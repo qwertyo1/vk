@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
 	using Utils;
@@ -7,7 +9,7 @@
 	/// Информация о количестве комментариев к записи.
 	/// См. описание <see href="http://vk.com/dev/post"/>. Раздел comments.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Comments
 	{
 		/// <summary>

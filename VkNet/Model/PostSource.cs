@@ -1,4 +1,5 @@
-﻿using VkNet.Enums.SafetyEnums;
+﻿using System.Runtime.Serialization;
+using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model
 {
@@ -11,7 +12,7 @@ namespace VkNet.Model
 	/// в своем приложении.
 	/// См. описание <see href="http://vk.com/dev/post_source"/>.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class PostSource
 	{
 		/// <summary>
@@ -32,7 +33,7 @@ namespace VkNet.Model
 		/// <summary>
 		/// Cодержит внешнюю ссылку на ресурс, с которого была опубликована запись.
 		/// </summary>
-		public Uri Url { get; set; }
+		public Uri Uri { get; set; }
 		#region Методы
 		/// <summary>
 		/// Разобрать из json.
@@ -46,7 +47,7 @@ namespace VkNet.Model
 				Type = response["type"],
 				Data = response["data"],
 				Platform = response["source_platform"],
-				Url = response["source_url"]
+				Uri = response["source_url"]
 			};
 
 			return postSource;

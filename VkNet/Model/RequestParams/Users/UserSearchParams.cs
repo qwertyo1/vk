@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿
+
+using System.Net;
 
 namespace VkNet.Model.RequestParams
 {
@@ -261,14 +263,14 @@ namespace VkNet.Model.RequestParams
 		{
 			var parameters = new VkParameters
 			{
-				{ "q", HttpUtility.HtmlEncode(p.Query) },
+				{ "q", WebUtility.HtmlEncode(p.Query) },
 				{ "sort", p.Sort },
 				{ "offset", p.Offset },
 				{ "count", p.Count },
 				{ "fields", p.Fields },
 				{ "city", p.City },
 				{ "country", p.Country },
-				{ "hometown", HttpUtility.HtmlEncode(p.Hometown) },
+				{ "hometown", WebUtility.HtmlEncode(p.Hometown) },
 				{ "university_country", p.UniversityCountry },
 				{ "university", p.University },
 				{ "university_year", p.UniversityYear },
@@ -288,10 +290,10 @@ namespace VkNet.Model.RequestParams
 				{ "school_class", p.SchoolClass },
 				{ "school", p.School },
 				{ "school_year", p.SchoolYear },
-				{ "religion", HttpUtility.HtmlEncode(p.Religion) },
-				{ "interests", HttpUtility.HtmlEncode(p.Interests) },
-				{ "company", HttpUtility.HtmlEncode(p.Company) },
-				{ "position", HttpUtility.HtmlEncode(p.Position) },
+				{ "religion", WebUtility.HtmlEncode(p.Religion) },
+				{ "interests", WebUtility.HtmlEncode(p.Interests) },
+				{ "company", WebUtility.HtmlEncode(p.Company) },
+				{ "position", WebUtility.HtmlEncode(p.Position) },
 				{ "group_id", p.GroupId },
 				{ "from_list", p.FromList }
 			};

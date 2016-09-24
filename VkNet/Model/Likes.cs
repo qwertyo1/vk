@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
 	using System;
 	using Utils;
@@ -7,7 +9,7 @@
 	/// Информация о лайках к записи.
 	/// См. описание <see href="http://vk.com/dev/post"/>. Раздел likes.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Likes
 	{
 		/// <summary>

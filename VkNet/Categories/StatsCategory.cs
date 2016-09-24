@@ -19,7 +19,7 @@ namespace VkNet.Categories
 		/// Методы для работы со статистикой.
 		/// </summary>
 		/// <param name="vk">API.</param>
-		internal StatsCategory(VkApi vk)
+		public StatsCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -37,7 +37,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/stats.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		private ReadOnlyCollection<StatsPeriod> Get(DateTime dateFrom, DateTime? dateTo = null, long? groupId = null, long? appId = null)
 		{
 			var parameters = new VkParameters
@@ -97,7 +97,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/stats.trackVisitor" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool TrackVisitor()
 		{
 			return _vk.Call("stats.trackVisitor", VkParameters.Empty);
@@ -115,7 +115,7 @@ namespace VkNet.Categories
 		/// Необходимо входить в число руководителей этого сообщества.
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/stats.getPostReach" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public PostReach GetPostReach(long ownerId, long postId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => postId);

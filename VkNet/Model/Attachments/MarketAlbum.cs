@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Serialization;
 using VkNet.Model.Attachments;
 using VkNet.Utils;
 
@@ -7,7 +8,7 @@ namespace VkNet.Model
 	/// <summary>
 	/// Каталог товаров
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class MarketAlbum : MediaAttachment
 	{
 		static MarketAlbum()

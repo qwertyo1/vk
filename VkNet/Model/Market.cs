@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using VkNet.Enums;
 using VkNet.Model.Attachments;
 using VkNet.Utils;
@@ -9,7 +10,7 @@ namespace VkNet.Model
 	/// <summary>
 	/// Информация о продукте.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Market:IVkModel
 	{
 		/// <summary>

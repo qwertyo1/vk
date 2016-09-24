@@ -1,4 +1,5 @@
-﻿using VkNet.Model.Attachments;
+﻿using System.Runtime.Serialization;
+using VkNet.Model.Attachments;
 
 namespace VkNet.Model
 {
@@ -14,7 +15,7 @@ namespace VkNet.Model
 	/// См. описание <see href="http://vk.com/dev/message"/>.
 	/// </summary>
 	[DebuggerDisplay("[{UserId}-{Id}] {Body}")]
-	[Serializable]
+	[DataContract]
 	public class Message : MediaAttachment
 	{
 		/// <summary>
@@ -178,19 +179,19 @@ namespace VkNet.Model
 		{ get; set; }
 
 		/// <summary>
-		/// <c>Url</c> копии фотографии беседы шириной 50px.
+		/// <c>Uri</c> копии фотографии беседы шириной 50px.
 		/// </summary>
 		public string Photo50
 		{ get; set; }
 
 		/// <summary>
-		/// <c>Url</c> копии фотографии беседы шириной 100px.
+		/// <c>Uri</c> копии фотографии беседы шириной 100px.
 		/// </summary>
 		public string Photo100
 		{ get; set; }
 
 		/// <summary>
-		/// <c>Url</c> копии фотографии беседы шириной 200px.
+		/// <c>Uri</c> копии фотографии беседы шириной 200px.
 		/// </summary>
 		public string Photo200
 		{ get; set; }

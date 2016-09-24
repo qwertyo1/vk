@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Net;
 using VkNet.Enums;
 using VkNet.Model;
 using VkNet.Model.Attachments;
@@ -10,7 +11,7 @@ namespace VkNet.Categories
 #if WINDOWS_PHONE
 	using System.Net;
 #else
-	using System.Web;
+	
 
 #endif
 	using Utils;
@@ -29,7 +30,7 @@ namespace VkNet.Categories
 		/// Методы для работы с wiki.
 		/// </summary>
 		/// <param name="vk">API.</param>
-		internal PagesCategory(VkApi vk)
+		public PagesCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -46,7 +47,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/pages.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public Page Get(PagesGetParams @params)
 		{
 			return _vk.Call("pages.get", @params);
@@ -65,7 +66,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.save" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Save(string text, long groupId, long pageId, long userId)
 		{
 			return Save(text, groupId, userId, pageId, null);
@@ -84,7 +85,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.save" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Save(string text, long groupId, string title, long userId)
 		{
 			return Save(text, groupId, userId, title: title);
@@ -104,7 +105,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/pages.save" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Save(string text, long groupId, long userId, long? pageId = null, string title = "")
 		{
 			var parameters = new VkParameters
@@ -133,7 +134,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.saveAccess" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long SaveAccess(long pageId, long groupId, long? userId = null, AccessPages view = AccessPages.All, AccessPages edit = AccessPages.Leaders)
 		{
 			var parameters = new VkParameters
@@ -165,7 +166,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.getHistory" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<History> GetHistory(long pageId, long groupId, long? userId = null)
 		{
 			var parameters = new VkParameters
@@ -189,7 +190,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.getTitles" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<Page> GetTitles(long groupId)
 		{
 			var parameters = new VkParameters
@@ -214,7 +215,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.getVersion" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public Page GetVersion(long versionId, long groupId, bool needHtml = false, long? userId = null)
 		{
 			var parameters = new VkParameters
@@ -239,12 +240,12 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.parseWiki" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public string ParseWiki(string text, ulong groupId)
 		{
 			var parameters = new VkParameters
 			{
-				{ "text", HttpUtility.UrlEncode(text) },
+				{ "text", WebUtility.UrlEncode(text) },
 				{ "group_id", groupId }
 			};
 
@@ -263,7 +264,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.clearCache" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool ClearCache(Uri url)
 		{
 			var parameters = new VkParameters

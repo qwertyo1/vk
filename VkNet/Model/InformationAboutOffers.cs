@@ -1,4 +1,4 @@
-﻿using System.Security.Policy;
+﻿using System;
 using VkNet.Utils;
 
 namespace VkNet.Model
@@ -50,7 +50,7 @@ namespace VkNet.Model
 		/// <summary>
 		/// Ссылка на изображение.
 		/// </summary>
-		public Url Img
+		public Uri Img
 		{ get; set; }
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace VkNet.Model
 				InstructionHtml = response["instruction_html"],
 				ShortDescription = response["short_description"],
 				Description = response["description"],
-				Img = new Url(response["img"]),
+				Img = new Uri(response["img"]),
 				Tag = response["tag"],
 				Price = response["price"]
 			};

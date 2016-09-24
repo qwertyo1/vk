@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Enums.SafetyEnums
 {
-	[Serializable]
+	[DataContract]
 	public class Platform : SafetyEnum<Platform>
 	{
 		/// <summary>

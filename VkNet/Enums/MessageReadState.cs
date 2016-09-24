@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace VkNet.Enums
 {
 	/// <summary>
 	/// Информация о том прочитано ли сообщение.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public enum MessageReadState
     {
         /// <summary>

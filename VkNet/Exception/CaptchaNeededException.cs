@@ -1,11 +1,13 @@
-﻿namespace VkNet.Exception
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Exception
 {
     using System;
 
     /// <summary>
     /// Исключение, выбрасываемое при необходимости ввода капчи для вызова метода
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class CaptchaNeededException : VkApiException
     {
         /// <summary>
@@ -14,7 +16,7 @@
         public long Sid { get; private set; }
 
         /// <summary>
-        /// Url-адрес изображения с капчей
+        /// Uri-адрес изображения с капчей
         /// </summary>
         public Uri Img { get; private set; }
 
@@ -22,7 +24,7 @@
         /// Создания экземпляра <see cref="CaptchaNeededException"/>
         /// </summary>
         /// <param name="sid">Сид</param>
-        /// <param name="img">Url-адрес изображения с капчей</param>
+        /// <param name="img">Uri-адрес изображения с капчей</param>
         public CaptchaNeededException(long sid, string img) : this(sid, string.IsNullOrEmpty(img) ? null : new Uri(img))
         {
 
@@ -32,7 +34,7 @@
         /// Создания экземпляра <see cref="CaptchaNeededException"/>
         /// </summary>
         /// <param name="sid">Сид</param>
-        /// <param name="img">Url-адрес изображения с капчей</param>
+        /// <param name="img">Uri-адрес изображения с капчей</param>
         public CaptchaNeededException(long sid, Uri img)
         {
             Sid = sid;

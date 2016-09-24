@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace VkNet
 {
@@ -40,13 +41,13 @@ namespace VkNet
 		/// <summary>
 		/// Таймер.
 		/// </summary>
-		private Timer _expireTimer;
+		private DispatcherTimer _expireTimer; // todo :DispatcherTimer
 
-		#region Requests limit stuff
-		/// <summary>
-		/// Запросов в секунду.
-		/// </summary>
-		private float _requestsPerSecond;
+        #region Requests limit stuff
+        /// <summary>
+        /// Запросов в секунду.
+        /// </summary>
+        private float _requestsPerSecond;
 		/// <summary>
 		/// Минимальное время, которое должно пройти между запросами чтобы не превысить кол-во запросов в секунду.
 		/// </summary>
@@ -229,7 +230,7 @@ namespace VkNet
 		/// <summary>
 		/// Браузер.
 		/// </summary>
-		internal IBrowser Browser
+		public IBrowser Browser
 		{ get; set; }
 
 		/// <summary>
@@ -528,27 +529,25 @@ namespace VkNet
 		/// <param name="expireTime">Значение таймера</param>
 		private void SetTimer(int expireTime)
 		{
-			_expireTimer = new Timer(
-				AlertExpires,
-				null,
-				expireTime > 0 ? expireTime : Timeout.Infinite,
-				Timeout.Infinite
-			);
-		}
-		/// <summary>
+            _expireTimer = new DispatcherTimer();
+            _expireTimer.Tick += AlertExpires;
+            _expireTimer.Interval = expireTime > 0 ? TimeSpan.FromMilliseconds(expireTime) : TimeSpan.FromMilliseconds(int.MaxValue);
+        }
+
+        /// <summary>
+		/// Создает событие оповещения об окончании времени токена
+		/// </summary>
+	    private void AlertExpires(object sender, EventArgs e)
+	    {
+            OnTokenExpires?.Invoke(this);
+	    }
+
+	    /// <summary>
 		/// Прекращает работу таймера оповещения
 		/// </summary>
 		private void StopTimer()
 		{
-		    _expireTimer?.Dispose();
-		}
-		/// <summary>
-		/// Создает событие оповещения об окончании времени токена
-		/// </summary>
-		/// <param name="state"></param>
-		private void AlertExpires(object state)
-		{
-			OnTokenExpires?.Invoke(this);
+		    _expireTimer?.Stop();
 		}
 
 		/// <summary>
@@ -623,7 +622,7 @@ namespace VkNet
 		/// <param name="apiVersion">Версия API.</param>
 		/// <returns>Результат выполнения запроса.</returns>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		internal VkResponse Call(string methodName, VkParameters parameters, bool skipAuthorization = false, string apiVersion = null)
+		public VkResponse Call(string methodName, VkParameters parameters, bool skipAuthorization = false, string apiVersion = null)
 		{
 			if (!parameters.ContainsKey("v"))
 			{
@@ -640,7 +639,7 @@ namespace VkNet
 		/// <param name="parameters">Параметры.</param>
 		/// <param name="skipAuthorization">Пропускать ли авторизацию</param>
 		/// <returns></returns>
-		internal string GetApiUrl(string methodName, IDictionary<string, string> parameters, bool skipAuthorization = false)
+		public string GetApiUrl(string methodName, IDictionary<string, string> parameters, bool skipAuthorization = false)
 		{
 			var builder = new StringBuilder($"https://api.vk.com/method/{methodName}?");
 
@@ -693,7 +692,7 @@ namespace VkNet
                     var span = LastInvokeTimeSpan?.TotalMilliseconds;
                     if (span < _minInterval)
                     {
-                        Thread.Sleep((int)_minInterval - (int)span);
+                        Task.Delay(TimeSpan.FromMilliseconds((int)_minInterval - (int)span)).Wait();
                     }
                     url = GetApiUrl(methodName, parameters, skipAuthorization);
                     LastInvokeTime = DateTimeOffset.Now;
@@ -708,8 +707,8 @@ namespace VkNet
 
 
 #if DEBUG && !UNIT_TEST
-			Trace.WriteLine(Utilities.PreetyPrintApiUrl(url));
-			Trace.WriteLine(Utilities.PreetyPrintJson(answer));
+            Debug.WriteLine(Utilities.PreetyPrintApiUrl(url));
+            Debug.WriteLine(Utilities.PreetyPrintJson(answer));
 #endif
             VkErrors.IfErrorThrowException(answer);
 

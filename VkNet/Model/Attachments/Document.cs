@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -7,7 +8,7 @@ namespace VkNet.Model.Attachments
 	/// Информация о документе.
 	/// См. описание <see href="http://vk.com/dev/doc"/>.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Document : MediaAttachment
     {
 		static Document()

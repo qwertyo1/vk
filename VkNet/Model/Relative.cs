@@ -1,4 +1,5 @@
-﻿using VkNet.Enums.SafetyEnums;
+﻿using System.Runtime.Serialization;
+using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model
 {
@@ -9,7 +10,7 @@ namespace VkNet.Model
     /// Информация о родственнике.
     /// См. описание <see href="http://vk.com/dev/fields"/>. Раздел relatives.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Relative
 	{
 		/// <summary>

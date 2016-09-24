@@ -1,10 +1,11 @@
 ﻿#if WINDOWS_PHONE
 	using System.Net;
 #else
-using System.Web;
+
 #endif
 
 using System.Collections.Generic;
+using System.Net;
 using VkNet.Model.Attachments;
 
 namespace VkNet.Model.RequestParams
@@ -111,7 +112,7 @@ namespace VkNet.Model.RequestParams
 				{ "domain", p.Domain },
 				{ "chat_id", p.ChatId },
 				{ "user_ids", p.UserIds },
-				{ "message", HttpUtility.UrlEncode(p.Message) },
+				{ "message", WebUtility.UrlEncode(p.Message) },
 				{ "random_id", p.RandomId },
 				{ "lat", p.Lat },
 				{ "long", p.Longitude },

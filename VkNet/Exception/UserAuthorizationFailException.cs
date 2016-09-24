@@ -6,7 +6,7 @@
     /// <summary>
     /// Исключение, которое выбрасывается при отсутствии авторизации на выполнение запрошенной операции.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class UserAuthorizationFailException : VkApiMethodInvokeException
     {
         /// <summary>
@@ -25,14 +25,14 @@
         {
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="UserAuthorizationFailException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected UserAuthorizationFailException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="UserAuthorizationFailException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected UserAuthorizationFailException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+        //}
     }
 }

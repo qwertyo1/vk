@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -6,7 +7,7 @@ namespace VkNet.Model.Attachments
 	/// <summary>
 	/// Подарок.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Gift : MediaAttachment
 	{
 		/// <summary>

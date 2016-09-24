@@ -10,7 +10,7 @@
 	/// <summary>
 	/// Утилиты.
 	/// </summary>
-	internal static class Utilities
+	public static class Utilities
     {
 		/// <summary>
 		/// Преобразовать в перечисление из числа.
@@ -98,7 +98,7 @@
 		/// <returns>URL</returns>
 		public static string PreetyPrintApiUrl(string url)
         {
-            return $"            Url = \"{url}\";";
+            return $"            Uri = \"{url}\";";
         }
 
 		/// <summary>

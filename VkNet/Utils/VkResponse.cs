@@ -4,7 +4,7 @@ namespace VkNet.Utils
 {
 	using System;
 	using System.Collections.ObjectModel;
-	using System.Web;
+	
 
 	using Newtonsoft.Json.Linq;
 
@@ -169,7 +169,7 @@ namespace VkNet.Utils
 		}
 
 		/// <summary>
-		/// Выполняет неявное преобразование из <see cref="VkResponse" /> в коллекцию <see cref="Collection`1[System.Int64]"/>.
+		/// Выполняет неявное преобразование из <see cref="VkResponse" /> в коллекцию <see cref="long"/>.
 		/// </summary>
 		/// <param name="response">Ответ vk.com</param>
 		/// <returns>
@@ -289,7 +289,7 @@ namespace VkNet.Utils
 		}
 
 		/// <summary>
-		/// Выполняет неявное преобразование из <see cref="VkResponse" /> в коллекцию <see cref="Collection`1[System.String]"/>.
+		/// Выполняет неявное преобразование из <see cref="VkResponse" /> в коллекцию <see cref="string"/>.
 		/// </summary>
 		/// <param name="response">Ответ vk.com</param>
 		/// <returns>

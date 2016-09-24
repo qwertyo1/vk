@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace VkNet.Exception
 {
@@ -6,7 +7,7 @@ namespace VkNet.Exception
 	/// 103 - Выход за пределы
 	/// </summary>
 	/// <seealso cref="VkNet.Exception.VkApiException" />
-	[Serializable]
+	[DataContract]
     public class OutOfLimitsException : VkApiException
     {
         /// <summary>

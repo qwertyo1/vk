@@ -18,7 +18,7 @@
 	{
 		private readonly VkApi _vk;
 
-		internal UsersCategory(VkApi vk)
+	    public UsersCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -35,7 +35,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.search" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> Search(UserSearchParams @params)
 		{
 			return _vk.Call("users.search", @params, false).ToVkCollectionOf<User>(r => r);
@@ -52,7 +52,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.isAppUser" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public bool IsAppUser(long? userId)
 		{
 			var parameters = new VkParameters {
@@ -74,7 +74,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/getProfiles"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public User Get(long userId, ProfileFields fields = null, NameCase nameCase = null, bool skipAuthorization = true)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -94,7 +94,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.get"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<User> Get([NotNull] IEnumerable<long> userIds, ProfileFields fields = null, NameCase nameCase = null, bool skipAuthorization = true)
 		{
 			if (userIds == null)
@@ -126,7 +126,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.get"/>.
 		/// </remarks>
 		[Pure, NotNull, ContractAnnotation("screenNames:null => halt")]
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<User> Get([NotNull] IEnumerable<string> screenNames, ProfileFields fields = null, NameCase nameCase = null, bool skipAuthorization = true)
 		{
 			if (screenNames == null)
@@ -156,7 +156,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.get"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public User Get([NotNull] string screenName, ProfileFields fields = null, NameCase nameCase = null, bool skipAuthorization = true)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => screenName);
@@ -180,7 +180,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.getSubscriptions" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Group> GetSubscriptions(long? userId = null, int? count = null, int? offset = null, GroupsFields fields = null, bool skipAuthorization = true)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -213,7 +213,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.getFollowers"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> GetFollowers(long? userId = null, int? count = null, int? offset = null, ProfileFields fields = null, NameCase nameCase = null, bool skipAuthorization = true)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -242,7 +242,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.report"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Report(long userId, ReportType type, string comment = "")
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -267,7 +267,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/users.getNearby" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<User> GetNearby(UsersGetNearbyParams @params)
 		{
 			return _vk.Call("users.getNearby", @params).ToVkCollectionOf<User>(x => x);

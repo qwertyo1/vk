@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
 
@@ -8,7 +10,7 @@
     /// Информация о репостах записи.
     /// См. описание <see href="http://vk.com/dev/post"/>. Раздел reposts.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Reposts
     {
         /// <summary>

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -7,7 +8,7 @@ namespace VkNet.Model.Attachments
 	/// Контент приложения.
 	/// См. описание <see href="http://vk.com/dev/attachments_w"/>. Раздел "Контент приложения".
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class ApplicationContent : MediaAttachment
 	{
 		/// <summary>

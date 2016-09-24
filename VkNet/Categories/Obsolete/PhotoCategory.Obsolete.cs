@@ -30,7 +30,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/photos.getProfile"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел и может быть отключён через некоторое время, пожалуйста, избегайте его использования.")]
 		public ReadOnlyCollection<Photo> GetProfile(long? ownerId = null, IEnumerable<long> photoIds = null, bool? rev = null, bool? extended = null, string feedType = null, DateTime? feed = null, bool? photoSizes = null, ulong? count = null, ulong? offset = null)
 		{
@@ -60,7 +60,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/photos.saveProfilePhoto"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел и может быть отключён через некоторое время, пожалуйста, избегайте его использования. Используйте метод SaveOwnerPhoto")]
 		public Photo SaveProfilePhoto(string server = null, string hash = null, string photo = null)
 		{
@@ -83,7 +83,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/photos.getAlbums" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetAlbums(PhotoGetAlbumsParams @params)")]
 		public ReadOnlyCollection<PhotoAlbum> GetAlbums(out int count, PhotoGetAlbumsParams @params)
 		{
@@ -124,7 +124,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/photos.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него Search(PhotoSearchParams @params)")]
 		public ReadOnlyCollection<Photo> Search(out int count, PhotoSearchParams @params)
 		{
@@ -152,7 +152,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/photos.getAll" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetAll(PhotoGetAllParams @params)")]
 		public ReadOnlyCollection<Photo> GetAll(out int count, PhotoGetAllParams @params)
 		{
@@ -172,7 +172,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/photos.getUserPhotos" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetUserPhotos(PhotoGetUserPhotosParams @params)")]
 		public ReadOnlyCollection<Photo> GetUserPhotos(out int count, PhotoGetUserPhotosParams @params)
 		{
@@ -194,7 +194,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/photos.getComments" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetComments(PhotoGetCommentsParams @params)")]
 		public ReadOnlyCollection<Comment> GetComments(out int count, PhotoGetCommentsParams @params)
 		{
@@ -216,7 +216,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/photos.getAllComments" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetAllComments(PhotoGetAllCommentsParams @params)")]
 		public ReadOnlyCollection<Comment> GetAllComments(out int count, PhotoGetAllCommentsParams @params)
 		{
@@ -239,7 +239,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/photos.getNewTags" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Метод устарел. Используйте вместо него GetNewTags(uint? offset = null, uint? count = null)")]
 		public ReadOnlyCollection<Photo> GetNewTags(out int countTotal, uint? offset = null, uint? count = null)
 		{

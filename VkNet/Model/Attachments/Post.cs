@@ -1,4 +1,5 @@
-﻿using VkNet.Enums.SafetyEnums;
+﻿using System.Runtime.Serialization;
+using VkNet.Enums.SafetyEnums;
 
 namespace VkNet.Model
 {
@@ -17,7 +18,7 @@ namespace VkNet.Model
 	/// См. описание <see href="http://vk.com/dev/post"/>.
 	/// </remarks>
 	[DebuggerDisplay("[{Id}] {Text}")]
-	[Serializable]
+	[DataContract]
 	public class Post : MediaAttachment
 	{
 		/// <summary>

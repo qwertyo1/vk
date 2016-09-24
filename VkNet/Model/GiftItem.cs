@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Enums;
 using VkNet.Model.Attachments;
 using VkNet.Utils;
@@ -8,7 +9,7 @@ namespace VkNet.Model
 	/// <summary>
 	/// Подарок.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class GiftItem
 	{
 		/// <summary>

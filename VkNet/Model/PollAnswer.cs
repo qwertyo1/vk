@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
 	using System;
 	using Utils;
@@ -6,7 +8,7 @@
 	/// <summary>
 	/// Вариант ответа в опросе
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class PollAnswer
     {
         /// <summary>

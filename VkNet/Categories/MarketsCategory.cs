@@ -40,7 +40,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Market> Get(long ownerId, long? albumId = null, int? count = null, int? offset = null, bool extended = false)
 		{
 			var parameters = new VkParameters {
@@ -65,7 +65,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.getById" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Market> GetById(IEnumerable<string> itemIds, bool extended = false)
 		{
 			var parameters = new VkParameters {
@@ -86,7 +86,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Market> Search(MarketSearchParams @params)
 		{
 			return _vk.Call("market.search", @params).ToVkCollectionOf<Market>(x => x);
@@ -104,7 +104,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.getAlbums" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<MarketAlbum> GetAlbums(long ownerId, int? offset = null, int? count = null)
 		{
 			var parameters = new VkParameters {
@@ -127,7 +127,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.getAlbumById" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<MarketAlbum> GetAlbumById(long ownerId, IEnumerable<long> albumIds)
 		{
 			var parameters = new VkParameters {
@@ -148,7 +148,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.createComment" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long CreateComment(MarketCreateCommentParams @params)
 		{
 			return _vk.Call("market.createComment", @params);
@@ -164,7 +164,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.getComments" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<MarketComment> GetComments(MarketGetCommentsParams @params)
 		{
 			return _vk.Call("market.getComments", @params).ToVkCollectionOf<MarketComment>(x => x);
@@ -181,7 +181,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.deleteComment" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteComment(long ownerId, long commentId)
 		{
 			var parameters = new VkParameters {
@@ -203,7 +203,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.restoreComment" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool RestoreComment(long ownerId, long commentId)
 		{
 			var parameters = new VkParameters {
@@ -227,7 +227,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.editComment" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool EditComment(long ownerId, long commentId, string message, IEnumerable<MediaAttachment> attachments = null)
 		{
 			var parameters = new VkParameters {
@@ -252,7 +252,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.reportComment" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool ReportComment(long ownerId, long commentId, ReportReason reason)
 		{
 			var parameters = new VkParameters {
@@ -276,7 +276,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.report" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Report(long ownerId, long itemId, ReportReason reason)
 		{
 			var parameters = new VkParameters {
@@ -298,7 +298,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.add" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Add(MarketProductParams @params)
 		{
 			return _vk.Call("market.add", @params)["market_item_id"];
@@ -314,7 +314,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.edit" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Edit(MarketProductParams @params)
 		{
 			return _vk.Call("market.edit", @params);
@@ -331,7 +331,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.delete" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Delete(long ownerId, long itemId)
 		{
 			var parameters = new VkParameters {
@@ -353,7 +353,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.restore" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Restore(long ownerId, long itemId)
 		{
 			var parameters = new VkParameters {
@@ -378,7 +378,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.reorderItems" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool ReorderItems(long ownerId, long albumId, long itemId, long? before, long? after)
 		{
 			var parameters = new VkParameters {
@@ -405,7 +405,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.reorderAlbums" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool ReorderAlbums(long ownerId, long albumId, long? before = null, long? after = null)
 		{
 			var parameters = new VkParameters {
@@ -431,7 +431,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.addAlbum" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long AddAlbum(long ownerId, string title, long? photoId = null, bool mainAlbum = false)
 		{
 			var parameters = new VkParameters {
@@ -457,7 +457,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.editAlbum" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool EditAlbum(long ownerId, long albumId, string title, long? photoId = null)
 		{
 			var parameters = new VkParameters {
@@ -481,7 +481,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.deleteAlbum" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool DeleteAlbum(long ownerId, long albumId)
 		{
 			var parameters = new VkParameters {
@@ -504,7 +504,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.removeFromAlbum" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool RemoveFromAlbum(long ownerId, long itemId, IEnumerable<long> albumIds)
 		{
 			var parameters = new VkParameters {
@@ -528,7 +528,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.addToAlbum" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool AddToAlbum(long ownerId, long itemId, IEnumerable<long> albumIds)
 		{
 			var parameters = new VkParameters {
@@ -551,7 +551,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/market.getCategories" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<MarketCategory> GetCategories(long? count, long? offset)
 		{
 			var parameters = new VkParameters {

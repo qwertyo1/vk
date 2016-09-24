@@ -1,4 +1,4 @@
-﻿using System.Security.Policy;
+﻿using System;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Utils;
 
@@ -44,9 +44,9 @@ namespace VkNet.Model.RequestParams
 		{ get; set; }
 
 		/// <summary>
-		/// Url страницы, на которой установлен виджет «Мне нравится». Используется вместо параметра item_id, если при размещении виджета не был указан page_id.
+		/// Uri страницы, на которой установлен виджет «Мне нравится». Используется вместо параметра item_id, если при размещении виджета не был указан page_id.
 		/// </summary>
-		public Url PageUrl
+		public Uri PageUrl
 		{ get; set; }
 
 		/// <summary>

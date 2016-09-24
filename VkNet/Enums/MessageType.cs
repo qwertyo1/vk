@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace VkNet.Enums
 {
 	/// <summary>
 	/// Тип сообщения.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public enum MessageType
     {
         /// <summary>

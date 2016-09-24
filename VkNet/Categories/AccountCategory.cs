@@ -22,7 +22,7 @@
 		/// Методы для работы с аккаунтом пользователя.
 		/// </summary>
 		/// <param name="vk">API.</param>
-		internal AccountCategory(VkApi vk)
+		public AccountCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -39,7 +39,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getCounters" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public Counters GetCounters(CountersFilter filter)
 		{
 			return _vk.Call("account.getCounters", new VkParameters { { "filter", filter } }, false);
@@ -57,7 +57,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.setNameInMenu" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SetNameInMenu([NotNull] string name, long? userId = null)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => name);
@@ -79,7 +79,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.setOnline" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SetOnline(bool? voip = null)
 		{
 			var parameters = new VkParameters { { "voip", voip } };
@@ -95,7 +95,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.setOffline" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SetOffline()
 		{
 			return _vk.Call("account.setOffline", VkParameters.Empty);
@@ -118,7 +118,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.lookupContacts" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public LookupContactsResult LookupContacts(List<string> contacts, Services service, string mycontact = null, bool? returnAll = null, UsersFields fields = null)
 		{
 			var parameters = new VkParameters
@@ -144,7 +144,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.registerDevice" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool RegisterDevice(AccountRegisterDeviceParams @params)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => @params.Token);
@@ -163,7 +163,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.unregisterDevice" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool UnregisterDevice(string deviceId, bool? sandbox = null)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => deviceId);
@@ -190,7 +190,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/account.setSilenceMode" />.
 		/// </remarks>
-		[ApiVersion("5.50")]
+		
 		public bool SetSilenceMode([NotNull] string deviceId, int? time = null, int? peerId = null, bool? sound = null)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => deviceId);
@@ -220,7 +220,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getPushSettings" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public AccountPushSettings GetPushSettings(string deviceId)
 		{
 			var parameters = new VkParameters
@@ -244,7 +244,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.setPushSettings" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SetPushSettings(string deviceId, PushSettings settings, string key, List<string> value)
 		{
 			var parameters = new VkParameters
@@ -271,7 +271,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getAppPermissions" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public long GetAppPermissions(long userId)
 		{
 			var parameters = new VkParameters
@@ -293,7 +293,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getActiveOffers" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public InformationAboutOffers GetActiveOffers(ulong? offset = null, ulong? count = null)
 		{
 			var parameters = new VkParameters
@@ -314,7 +314,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.banUser" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool BanUser(long userId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -335,7 +335,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.unbanUser" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool UnbanUser(long userId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => userId);
@@ -387,7 +387,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getInfo" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public AccountInfo GetInfo(AccountFields fields = null)
 		{
 			return _vk.Call("account.getInfo", new VkParameters { { "fields", fields } });
@@ -404,7 +404,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.setInfo" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SetInfo([NotNull]string name, [NotNull]string value)
 		{
 			var parameters = new VkParameters
@@ -428,7 +428,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.changePassword" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public AccountChangePasswordResult ChangePassword(string oldPassword, string newPassword, string restoreSid = null, string changePasswordHash = null)
 		{
 			var parameters = new VkParameters
@@ -449,7 +449,7 @@
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/account.getProfileInfo" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.45")]
+		
 		public AccountSaveProfileInfoParams GetProfileInfo()
 		{
 			User user = _vk.Call("account.getProfileInfo", VkParameters.Empty);
@@ -481,7 +481,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/account.saveProfileInfo" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SaveProfileInfo(int cancelRequestId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => cancelRequestId);
@@ -500,7 +500,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/account.saveProfileInfo" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		public bool SaveProfileInfo(out ChangeNameRequest changeNameRequest, AccountSaveProfileInfoParams @params)
 		{
 			var response = _vk.Call("account.saveProfileInfo", @params);

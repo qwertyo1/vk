@@ -159,22 +159,22 @@
 		{
 			var inputs = new Dictionary<string, string>();
 
-			var form = GetFormNode();
-			foreach (var node in form.SelectNodes("//input"))
-			{
-				var nameAttribute = node.Attributes["name"];
-				var valueAttribute = node.Attributes["value"];
+			//var form = GetFormNode();
+			//foreach (var node in form.SelectNodes("//input"))
+			//{
+			//	var nameAttribute = node.Attributes["name"];
+			//	var valueAttribute = node.Attributes["value"];
 
-				var name = nameAttribute != null ? nameAttribute.Value : string.Empty;
-				var value = valueAttribute != null ? valueAttribute.Value : string.Empty;
+			//	var name = nameAttribute != null ? nameAttribute.Value : string.Empty;
+			//	var value = valueAttribute != null ? valueAttribute.Value : string.Empty;
 
-				if (string.IsNullOrEmpty(name))
-				{
-					continue;
-				}
+			//	if (string.IsNullOrEmpty(name))
+			//	{
+			//		continue;
+			//	}
 
-				inputs.Add(name, Uri.EscapeDataString(value));
-			}
+			//	inputs.Add(name, Uri.EscapeDataString(value));
+			//}
 
 			return inputs;
 		}
@@ -186,14 +186,14 @@
 		/// <exception cref="VkApiException">Элемент не найден на форме.</exception>
 		private HtmlNode GetFormNode()
 		{
-			HtmlNode.ElementsFlags.Remove("form");
-			var form = _html.DocumentNode.SelectSingleNode("//form");
-			if (form == null)
-			{
-				throw new VkApiException("Form element not found.");
-			}
+			//HtmlNode.ElementsFlags.Remove("form");
+			//var form = _html.DocumentNode.SelectSingleNode("//form");
+			//if (form == null)
+			//{
+			//	throw new VkApiException("Form element not found.");
+			//}
 
-			return form;
+			return HtmlNode.CreateNode("");
 		}
 	}
 }

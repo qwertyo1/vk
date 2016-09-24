@@ -16,7 +16,7 @@
     /// Для тестового вызова проверки добавьте параметр test_redirect_uri=1.
     /// 
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class NeedValidationException : VkApiException
     {
         /// <summary>
@@ -34,14 +34,14 @@
             redirectUri = new Uri(strRedirectUri);
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="AccessTokenInvalidException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected NeedValidationException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="AccessTokenInvalidException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected NeedValidationException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+        //}
     }
 }

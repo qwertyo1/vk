@@ -1,4 +1,5 @@
-﻿using VkNet.Model.Attachments;
+﻿using System.Runtime.Serialization;
+using VkNet.Model.Attachments;
 
 namespace VkNet.Model
 {
@@ -14,7 +15,7 @@ namespace VkNet.Model
     /// См. описание <see href="http://vk.com/devcomment_object"/>.
     /// </summary>
     [DebuggerDisplay("Id = {Id}, Text = {Text}, Date = {Date}")]
-    [Serializable]
+    [DataContract]
     public class Comment
     {
         /// <summary>

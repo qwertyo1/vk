@@ -26,7 +26,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://new.vk.com/dev/board.getTopics" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         public VkCollection<Topic> GetTopics(BoardGetTopicsParams @params, bool skipAuthorization = true)
         {
             return _vk.Call("board.getTopics", @params, skipAuthorization).ToVkCollectionOf<Topic>(x => x);
@@ -42,7 +42,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://new.vk.com/dev/board.getComments" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         public TopicsFeed GetComments(BoardGetCommentsParams @params, bool skipAuthorization = true)
         {
             var response = _vk.Call("board.getComments", @params, skipAuthorization);
@@ -65,7 +65,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.addTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long AddTopic(BoardAddTopicParams @params)
         {
             return _vk.Call("board.addTopic", @params);
@@ -80,7 +80,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.deleteTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long DeleteTopic(BoardTopicParams @params)
         {
             return _vk.Call("board.deleteTopic", @params);
@@ -95,7 +95,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.closeTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long CloseTopic(BoardTopicParams @params)
         {
             return _vk.Call("board.closeTopic", @params);
@@ -110,7 +110,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.openTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long OpenTopic(BoardTopicParams @params)
         {
             return _vk.Call("board.openTopic", @params);
@@ -125,7 +125,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.fixTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long FixTopic(BoardTopicParams @params)
         {
             return _vk.Call("board.fixTopic", @params);
@@ -140,7 +140,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.unfixTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long UnFixTopic(BoardTopicParams @params)
         {
             return _vk.Call("board.unfixTopic", @params);
@@ -156,7 +156,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/board.editTopic" />.
         /// </remarks>
-        [ApiVersion("5.53")]
+        
         public long EditTopic(BoardEditTopicParams @params)
         {
             return _vk.Call("board.editTopic", @params);
@@ -171,7 +171,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://new.vk.com/dev/board.createComment" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         public long СreateComment(BoardCreateCommentParams @params)
         {
             return _vk.Call("board.createComment", @params);
@@ -186,7 +186,7 @@
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://new.vk.com/dev/board.deleteComment" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         public long DeleteComment(BoardCommentParams @params)
         {
             return _vk.Call("board.deleteComment", @params);

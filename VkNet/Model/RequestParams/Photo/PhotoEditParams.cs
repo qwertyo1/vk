@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿
+using System.Net;
 using VkNet.Utils;
 
 namespace VkNet.Model.RequestParams
@@ -77,7 +78,7 @@ namespace VkNet.Model.RequestParams
 			{
 				{ "owner_id", p.OwnerId },
 				{ "photo_id", p.PhotoId },
-				{ "caption", HttpUtility.UrlEncode(p.Caption) },
+				{ "caption", WebUtility.UrlEncode(p.Caption) },
 				{ "latitude", p.Latitude },
 				{ "longitude", p.Longitude },
 				{ "place_str", p.PlaceStr },

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -7,7 +8,7 @@ namespace VkNet.Model.Attachments
 	/// Заметка пользователя.
 	/// См. описание <see href="http://vk.com/dev/note"/>.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Note : MediaAttachment
     {
 		/// <summary>

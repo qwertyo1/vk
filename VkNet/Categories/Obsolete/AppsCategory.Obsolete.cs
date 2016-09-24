@@ -22,7 +22,7 @@ namespace VkNet.Categories
 		/// К методу можно делать не более 60 запросов в минуту с одного IP или id.
 		/// Страница документации ВКонтакте <seealso cref="http://vk.com/dev/apps.getCatalog" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте GetCatalog(AppGetCatalogParams @params)")]
 		public ReadOnlyCollection<App> GetCatalog(out long totalCount, AppGetCatalogParams @params)
 		{
@@ -44,7 +44,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.get" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте Get(AppGetParams @params)")]
 		public ReadOnlyCollection<App> Get(out long totalCount, AppGetParams @params)
 		{
@@ -70,7 +70,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/apps.getFriendsList" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		[Obsolete("Данный метод устарел. Используйте GetFriendsList(AppRequestType type, bool? extended = null, long? count = null, long? offset = null, UsersFields fields = null)")]
 		public ReadOnlyCollection<User> GetFriendsList(out long totalCount, AppRequestType type, bool? extended = null, long? count = null, long? offset = null, UsersFields fields = null)
 		{

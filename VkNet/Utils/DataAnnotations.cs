@@ -668,7 +668,7 @@ namespace JetBrains.Annotations
     /// [ActionName("Foo")]
     /// public ActionResult Login(string returnUrl)
     /// {
-    ///   ViewBag.ReturnUrl = Url.Action("Foo"); // OK
+    ///   ViewBag.ReturnUrl = Uri.Action("Foo"); // OK
     ///   return RedirectToAction("Bar"); // Error: Cannot resolve action
     /// }
     /// </code>

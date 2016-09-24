@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace VkNet.Model.Attachments
 {
     /// <summary>
     /// Приложенный объект, имеющий идентификатор и владельца.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public abstract class MediaAttachment
 	{
 		/// <summary>

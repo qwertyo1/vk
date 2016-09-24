@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace VkNet.Model.Attachments
 {
@@ -12,7 +13,7 @@ namespace VkNet.Model.Attachments
 	/// <remarks>
 	/// См. описание <see href="http://vk.com/dev/photo"/> и <see href="http://vk.com/dev/attachments_w"/> раздел "Альбом с фотографиями".
 	/// </remarks>
-	[Serializable]
+	[DataContract]
 	public class Photo : MediaAttachment
 	{
 		static Photo()
@@ -26,32 +27,32 @@ namespace VkNet.Model.Attachments
 		public long? AlbumId { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером 75x75px.
+		/// Uri фотографии с максимальным размером 75x75px.
 		/// </summary>
 		public Uri Photo75 { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером 130x130px.
+		/// Uri фотографии с максимальным размером 130x130px.
 		/// </summary>
 		public Uri Photo130 { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером 604x604px.
+		/// Uri фотографии с максимальным размером 604x604px.
 		/// </summary>
 		public Uri Photo604 { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером 807x807px.
+		/// Uri фотографии с максимальным размером 807x807px.
 		/// </summary>
 		public Uri Photo807 { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером 1280x1024px.
+		/// Uri фотографии с максимальным размером 1280x1024px.
 		/// </summary>
 		public Uri Photo1280 { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером  2560x2048px.
+		/// Uri фотографии с максимальным размером  2560x2048px.
 		/// </summary>
 		public Uri Photo2560 { get; set; }
 
@@ -150,13 +151,13 @@ namespace VkNet.Model.Attachments
 		public double? Longitude { get; set; }
 
 		/// <summary>
-		/// Url фотографии с максимальным размером.
+		/// Uri фотографии с максимальным размером.
 		/// </summary>
 		public Uri BigPhotoSrc
 		{ get; set; }
 
 		/// <summary>
-		/// Url фотографии с минимальным размером.
+		/// Uri фотографии с минимальным размером.
 		/// </summary>
 		public Uri SmallPhotoSrc
 		{ get; set; }

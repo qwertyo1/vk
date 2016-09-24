@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model.Attachments
@@ -9,8 +10,8 @@ namespace VkNet.Model.Attachments
 	/// Ссылка на Web-страницу.
 	/// См. описание <see href="http://vk.com/dev/attachments_w"/>. Раздел "Ссылка".
 	/// </summary>
-	[DebuggerDisplay("[{Title}] {Url}")]
-	[Serializable]
+	[DebuggerDisplay("[{Title}] {Uri}")]
+	[DataContract]
 	public class Link : MediaAttachment
 	{
 		/// <summary>

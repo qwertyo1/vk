@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Model
@@ -6,7 +7,7 @@ namespace VkNet.Model
 	/// <summary>
 	/// Категория товара.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class MarketCategory
 	{
 		/// <summary>

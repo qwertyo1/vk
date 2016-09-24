@@ -28,7 +28,7 @@ namespace VkNet.Categories
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.get" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         [Obsolete("Устаревшая версия API. Используйте метод Get(PagesGetParams @params)")]
         public Page Get(long ownerId, long? pageId, bool global = false, bool sitePreview = false, bool needSource = false, bool needHtml = false)
         {
@@ -52,7 +52,7 @@ namespace VkNet.Categories
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.get" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         [Obsolete("Устаревшая версия API. Используйте метод Get(PagesGetParams @params)")]
         public Page Get(long ownerId, string title, bool global = false, bool sitePreview = false, bool needSource = false, bool needHtml = false)
         {
@@ -77,7 +77,7 @@ namespace VkNet.Categories
         /// <remarks>
         /// Страница документации ВКонтакте <see href="https://vk.com/dev/pages.get" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
         [Obsolete("Устаревшая версия API. Используйте метод Get(PagesGetParams @params)")]
         private Page Get(long ownerId, string title = "", long? pageId = null, bool global = false, bool sitePreview = false, bool needSource = false, bool needHtml = false)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.Serialization;
 using VkNet.Utils;
 
 namespace VkNet.Enums.SafetyEnums
@@ -11,7 +12,7 @@ namespace VkNet.Enums.SafetyEnums
     /// Аналог enum, типобезопасен.
     /// </summary>
     /// <typeparam name="TFilter">Непосредственно наследник</typeparam>
-    [Serializable]
+    [DataContract]
     [SuppressMessage("ReSharper", "StaticMemberInGenericType")]
     public abstract class SafetyEnum <TFilter> where TFilter : SafetyEnum<TFilter>, new()
 	{

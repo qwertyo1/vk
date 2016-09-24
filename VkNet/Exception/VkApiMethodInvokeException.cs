@@ -1,4 +1,7 @@
-﻿namespace VkNet.Exception
+﻿using System.IO;
+using System.Xml.Serialization;
+
+namespace VkNet.Exception
 {
     using System;
     using System.Runtime.Serialization;
@@ -6,7 +9,7 @@
     /// <summary>
     /// Базовый класс, для всех исключений, которые могут произойти при вызове методов API ВКонтакте.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class VkApiMethodInvokeException : VkApiException
     {
         /// <summary>
@@ -59,14 +62,15 @@
             ErrorCode = code;
         }
 
-        /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="VkApiMethodInvokeException"/> на основе ранее сериализованных данных.
-        /// </summary>
-        /// <param name="info">Содержит все данные, необходимые для десериализации.</param>
-        /// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
-        /// определяемый вызывающим, контекст.</param>
-        protected VkApiMethodInvokeException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
+        ///// <summary>
+        ///// Инициализирует новый экземпляр класса <see cref="VkApiMethodInvokeException"/> на основе ранее сериализованных данных.
+        ///// </summary>
+        ///// <param name="info">Содержит все данные, необходимые для десериализации.</param>
+        ///// <param name="context">Описывает источник и назначение данного сериализованного потока и предоставляет дополнительный,
+        ///// определяемый вызывающим, контекст.</param>
+        //protected VkApiMethodInvokeException(SerializationInfo info, StreamingContext context) : base(info, context)
+        //{
+            
+        //}
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
 	using System;
 	using Utils;
@@ -9,7 +11,7 @@
 	/// и <see href="http://vk.com/dev/fields"/>. Последняя страница обманывает насчет поля 'connections'.
 	/// Экспериментально установлено, что поля находятся непосредственно в полях объекта User.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Connections
 	{
 		/// <summary>

@@ -1,4 +1,5 @@
-﻿using VkNet.Utils;
+﻿using System.Runtime.Serialization;
+using VkNet.Utils;
 
 namespace VkNet.Model
 {
@@ -7,7 +8,7 @@ namespace VkNet.Model
     /// <summary>
     /// Информация о стране.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Country
     {
         /// <summary>

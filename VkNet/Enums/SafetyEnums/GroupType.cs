@@ -1,11 +1,13 @@
-﻿namespace VkNet.Enums.SafetyEnums
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Enums.SafetyEnums
 {
 	using System;
 
 	/// <summary>
 	/// Тип сообщества
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public sealed class GroupType : SafetyEnum<GroupType>
 	{
 		/// <summary>

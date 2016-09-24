@@ -34,43 +34,43 @@ namespace VkNet.Model
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес обложки приложения шириной 100px.
+		/// Uri-адрес обложки приложения шириной 100px.
 		/// </summary>
 		public string Icon100
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес обложки приложения шириной 200px.
+		/// Uri-адрес обложки приложения шириной 200px.
 		/// </summary>
 		public string Icon200
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес обложки приложения шириной 75px.
+		/// Uri-адрес обложки приложения шириной 75px.
 		/// </summary>
 		public string Icon75
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес обложки приложения шириной 50px.
+		/// Uri-адрес обложки приложения шириной 50px.
 		/// </summary>
 		public string Icon50
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес обложки приложения шириной 16px.
+		/// Uri-адрес обложки приложения шириной 16px.
 		/// </summary>
 		public string Icon16
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес баннера шириной 186px.
+		/// Uri-адрес баннера шириной 186px.
 		/// </summary>
 		public string Banner186
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адрес баннера шириной 896px.
+		/// Uri-адрес баннера шириной 896px.
 		/// </summary>
 		public string Banner896
 		{ get; set; }
@@ -124,7 +124,7 @@ namespace VkNet.Model
 		{ get; set; }
 
 		/// <summary>
-		/// Url-адреса изображений-скриншотов из приложения.
+		/// Uri-адреса изображений-скриншотов из приложения.
 		/// </summary>
 		public Photo ScreenShots
 		{ get; set; }

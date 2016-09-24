@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
     using Utils;
@@ -7,7 +9,7 @@
     /// Информация о высшем учебном заведении пользователя.
     /// См. описание <see href="http://vk.com/dev/fields"/>. Раздел education.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class Education
     {
         /// <summary>

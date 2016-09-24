@@ -32,11 +32,13 @@
 		{
 			Request = (HttpWebRequest)WebRequest.Create(url);
 			Request.Accept = "text/html";
-			Request.UserAgent = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)";
-			Request.CookieContainer = cookies.Container;
+            Request.Headers["UserAgent"] = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)";
+            Request.CookieContainer = cookies.Container;
 
-			if (host != null && port != null)
-				Request.Proxy = new WebProxy(host, port.Value);
+		    if (host != null && port.HasValue)
+		    {
+		        Request.Proxy = new WebProxy(host, port.Value);
+		    }
 
             if (Request.Proxy != null)
             {
@@ -95,10 +97,14 @@
 			};
 
 			var data = Encoding.UTF8.GetBytes(parameters);
-			call.Request.ContentLength = data.Length;
+            call.Request.Headers["Content-Length"] = data.Length.ToString();
+            var response = call.Request.GetRequestStreamAsync();
+		    response.Wait();
 
-			using (var requestStream = call.Request.GetRequestStream())
-				requestStream.Write(data, 0, data.Length);
+		    using (var requestStream = response.Result)
+		    {
+		        requestStream.Write(data, 0, data.Length);
+		    }
 
 			return call.MakeRequest(host, port, proxyLogin, proxyPassword);
 		}
@@ -120,12 +126,15 @@
 			request.Method = "POST";
 			request.ContentType = "application/x-www-form-urlencoded";
 			var formRequest = form.GetRequest();
-			request.ContentLength = formRequest.Length;
-			request.Referer = form.OriginalUrl;
-			request.GetRequestStream().Write(formRequest, 0, formRequest.Length);
-			request.AllowAutoRedirect = false;
+			request.Headers["Content-Length"] = formRequest.Length.ToString();
+            // request.Referer = form.OriginalUrl; // todo: in UWP HttpWebRequest unsupported property Referer
+            var requestStreamAsync = request.GetRequestStreamAsync();
+		    requestStreamAsync.Wait();
+		    requestStreamAsync.Result.Write(formRequest, 0, formRequest.Length);
 
-			return call.MakeRequest(host, port, proxyLogin, proxyPassword);
+            // request.AllowAutoRedirect = false; // todo: in UWP HttpWebRequest unsupported property AllowAutoRedirect
+
+            return call.MakeRequest(host, port, proxyLogin, proxyPassword);
 		}
 
         /// <summary>
@@ -144,9 +153,9 @@
 			var request = call.Request;
 			request.Method = "GET";
 			request.ContentType = "text/html";
-			request.Referer = Request.Referer;
+            // request.Referer = Request.Referer; // todo: in UWP HttpWebRequest unsupported property Referer
 
-			return call.MakeRequest(host, port, proxyLogin, proxyPassword);
+            return call.MakeRequest(host, port, proxyLogin, proxyPassword);
 		}
 
         /// <summary>
@@ -169,8 +178,7 @@
 						throw new VkApiException("Response is null.");
 					}
 
-					var encoding = response.CharacterSet != null ? Encoding.GetEncoding(response.CharacterSet) : Encoding.UTF8;
-					Result.SaveResponse(response.ResponseUri, stream, encoding);
+					Result.SaveResponse(response.ResponseUri, stream, Encoding.UTF8);
 
 					Result.SaveCookies(response.Cookies);
 
@@ -190,7 +198,9 @@
 		{
 			try
 			{
-				return (HttpWebResponse)Request.GetResponse();
+			    var response = Request.GetResponseAsync();
+			    response.Wait();
+                return (HttpWebResponse)response.Result;
 			} catch (WebException ex)
 			{
 				throw new VkApiException(ex.Message, ex);

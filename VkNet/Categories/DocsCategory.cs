@@ -43,7 +43,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.get" />.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Document> Get(int? count = null, int? offset = null, long? ownerId = null, DocFilter? filter = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => count);
@@ -69,7 +69,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.getById"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<Document> GetById(IEnumerable<Document> docs)
 		{
 			foreach (var doc in docs)
@@ -96,7 +96,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.getUploadServer"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public UploadServerInfo GetUploadServer(long? groupId = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => groupId);
@@ -118,7 +118,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.getWallUploadServer"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public UploadServerInfo GetWallUploadServer(long? groupId = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => groupId);
@@ -141,7 +141,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.save"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public ReadOnlyCollection<Document> Save(string file, string title, string tags = null, long? captchaSid = null, string captchaKey = null)
 		{
 			VkErrors.ThrowIfNullOrEmpty(() => file);
@@ -171,7 +171,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.delete"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public bool Delete(long ownerId, long docId)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => ownerId);
@@ -196,7 +196,7 @@
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.add"/>.
 		/// </remarks>
 		[Pure]
-		[ApiVersion("5.44")]
+		
 		public long Add(long ownerId, long docId, string accessKey = null)
 		{
 			VkErrors.ThrowIfNumberIsNegative(() => ownerId);
@@ -222,7 +222,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.getTypes" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<DocumentType> GetTypes(long ownerId)
 		{
 			var parameters = new VkParameters {
@@ -244,7 +244,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.search" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<Document> Search(string query, long? count = null, long? offset = null)
 		{
 			var parameters = new VkParameters {
@@ -270,7 +270,7 @@
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/docs.edit" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool Edit(long ownerId, long docId, string title, IEnumerable<string> tags)
 		{
 			var parameters = new VkParameters {

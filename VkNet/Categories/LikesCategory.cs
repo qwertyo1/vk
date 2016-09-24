@@ -23,7 +23,7 @@ namespace VkNet.Categories
 		/// API для работы с лайками.
 		/// </summary>
 		/// <param name="vk">The vk.</param>
-		internal LikesCategory(VkApi vk)
+		public LikesCategory(VkApi vk)
 		{
 			_vk = vk;
 		}
@@ -39,7 +39,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/likes.getList"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public VkCollection<long> GetList(LikesGetListParams @params, bool skipAuthorization = true)
 		{
 		    @params.Extended = false;
@@ -56,7 +56,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/likes.getList"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public UserOrGroup GetListEx(LikesGetListParams @params)
 		{
             @params.Extended = true;
@@ -73,7 +73,7 @@ namespace VkNet.Categories
         /// <remarks>
         /// Страница документации ВКонтакте <see href="http://vk.com/dev/likes.add" />.
         /// </remarks>
-        [ApiVersion("5.44")]
+        
 		public long Add(LikesAddParams @params)
 		{
 			var response = _vk.Call("likes.add", @params);
@@ -91,7 +91,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/likes.delete"/>.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public long Delete(LikeObjectType type, long itemId, long? ownerId = null)
 		{
 			var parameters = new VkParameters
@@ -121,7 +121,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/likes.isLiked" />.
 		/// </remarks>
-		[ApiVersion("5.44")]
+		
 		public bool IsLiked(out bool copied, LikeObjectType type, long itemId,  long? userId = null, long? ownerId = null)
 		{
 			var parameters = new VkParameters

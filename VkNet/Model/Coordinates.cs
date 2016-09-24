@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
 	using System;
 
@@ -11,7 +13,7 @@
 	/// Официальная страница <see href="http://vk.com/dev/post"/>, описывающая запись на стене и объект Geo в нем, почему то
 	/// молчит о том, что возвращаются географические координаты.
 	/// </summary>
-	[Serializable]
+	[DataContract]
 	public class Coordinates
 	{
 		/// <summary>

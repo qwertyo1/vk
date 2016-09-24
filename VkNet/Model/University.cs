@@ -1,4 +1,6 @@
-﻿namespace VkNet.Model
+﻿using System.Runtime.Serialization;
+
+namespace VkNet.Model
 {
     using System;
     using Utils;
@@ -7,7 +9,7 @@
     /// Высшее учебное заведение, в котором учился пользователь.
     /// См. описание <see href="http://vk.com/dev/fields"/>. Раздел universities.
     /// </summary>
-    [Serializable]
+    [DataContract]
     public class University
     {
         /// <summary>

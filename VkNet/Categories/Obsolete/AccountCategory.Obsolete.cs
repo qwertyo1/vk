@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using JetBrains.Annotations;
 using VkNet.Enums;
 using VkNet.Enums.Filters;
@@ -26,7 +27,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <seealso cref="https://vk.com/dev/account.registerDevice" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		[Obsolete("Функция устарела. Пожалуйста используйте функцию RegisterDevice(AccountRegisterDeviceParams @params)")]
 		public bool RegisterDevice([NotNull]string token, string deviceModel, string systemVersion, bool? noText = null, SubscribeFilter subscribe = null)
 		{
@@ -59,7 +60,7 @@ namespace VkNet.Categories
 		/// <returns>Результат выполнения операции.</returns>
 		/// <remarks> Если передаются <paramref name="firstName"/> или <paramref name="lastName"/>, рекомендуется
 		/// использовать перегрузку с соотвествующим out параметром типа <see cref="ChangeNameRequest"/> для получения объекта заявки на смену имени.</remarks>
-		[ApiVersion("5.45")]
+		
 		[Obsolete("Данный метод устарел, пожалуйста используйте метод SaveProfileInfo(out ChangeNameRequest changeNameRequest, AccountSaveInfo @params)")]
 		public bool SaveProfileInfo(string firstName = null, string lastName = null, string maidenName = null, Sex? sex = null,
 			RelationType? relation = null, long? relationPartnerId = null, DateTime? birthDate = null, BirthdayVisibility? birthDateVisibility = null,
@@ -74,8 +75,8 @@ namespace VkNet.Categories
 				Sex = sex.Value,
 				Relation = relation.Value,
 				RelationPartner = relationPartnerId.HasValue ? new User { Id = relationPartnerId.Value } : null,
-				BirthDate = birthDate?.ToShortDateString(),
-				BirthdayVisibility = birthDateVisibility.Value,
+                BirthDate = birthDate?.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture),
+                BirthdayVisibility = birthDateVisibility.Value,
 				HomeTown = homeTown,
 				Country = new Country { Id = countryId },
 				City = new City
@@ -103,7 +104,7 @@ namespace VkNet.Categories
 		/// <param name="countryId">Идентификатор страны пользователя</param>
 		/// <param name="cityId">Идентификатор города пользователя</param>
 		/// <returns>Результат выполнения операции.</returns>
-		[ApiVersion("5.45")]
+		
 		[Obsolete("Данный метод устарел, пожалуйста используйте метод SaveProfileInfo(out ChangeNameRequest changeNameRequest, AccountSaveInfo @params)")]
 		public bool SaveProfileInfo(out ChangeNameRequest changeNameRequest, string firstName = null, string lastName = null, string maidenName = null, Sex? sex = null,
 			RelationType? relation = null, long? relationPartnerId = null, DateTime? birthDate = null, BirthdayVisibility? birthDateVisibility = null,
@@ -120,7 +121,7 @@ namespace VkNet.Categories
 				{
 					Id = relationPartnerId.Value
 				} : null,
-				BirthDate = birthDate?.ToShortDateString(),
+				BirthDate = birthDate?.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture),
 				BirthdayVisibility = birthDateVisibility.Value,
 				HomeTown = homeTown,
 				Country = new Country { Id = countryId },
@@ -142,7 +143,7 @@ namespace VkNet.Categories
 		/// <remarks>
 		/// Страница документации ВКонтакте <see href="http://vk.com/dev/account.getBanned" />.
 		/// </remarks>
-		[ApiVersion("5.45")]
+		
 		[Obsolete("Метод устарел, пожалуйста используйте метод GetBanned(int? offset = null, int? count = null)")]
 		public ReadOnlyCollection<User> GetBanned(out int total, int? offset = null, int? count = null)
 		{
