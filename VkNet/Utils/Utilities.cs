@@ -82,14 +82,9 @@
 		/// <param name="selector">Функция фильтрации.</param>
 		/// <returns>Коллекция данных указанного типа.</returns>
 		public static IEnumerable<T> Convert<T>(this VkResponseArray response, Func<VkResponse, T> selector)
-        {
-	        if (response == null)
-	        {
-		        return Enumerable.Empty<T>();
-	        }
-
-            return response.Select(selector).ToList();
-        }
+		{
+		    return response == null ? Enumerable.Empty<T>() : response.Select(selector).ToList();
+		}
 
 		/// <summary>
 		/// Вывести в консоль URL API.

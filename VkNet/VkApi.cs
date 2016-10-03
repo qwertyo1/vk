@@ -8,7 +8,6 @@ namespace VkNet
     using JetBrains.Annotations;
     using System.Collections.Generic;
     using System.Text;
-    using System.Threading;
     using System.Threading.Tasks;
     using Newtonsoft.Json.Linq;
     using Categories;

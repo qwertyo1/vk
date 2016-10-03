@@ -19,7 +19,7 @@ namespace VkNet.Tests.Categories
 		[Test]
 		public void CheckLink_BannedLink()
 		{
-			const string url = "https://api.vk.com/method/utils.checkLink?url=http://www.kreml.ru/‎&v=" + VkApi.VkApiVersion ;
+			const string url = "https://api.vk.com/method/utils.checkLink?url=http://www.kreml.ru/&v=" + VkApi.VkApiVersion ;
 			const string json =
 				@"{
                     'response': {
@@ -33,12 +33,13 @@ namespace VkNet.Tests.Categories
 			var type = utils.CheckLink("http://www.kreml.ru/‎");
 			Assert.That(type, Is.EqualTo(LinkAccessType.Banned));
 
-			type = utils.CheckLink(new Uri("http://www.kreml.ru/‎"));
+            utils = GetMockedUtilsCategory(url, json);
+            type = utils.CheckLink(new Uri("http://www.kreml.ru/‎"));
 
 			Assert.That(type, Is.EqualTo(LinkAccessType.Banned));
 		}
 
-		[Test]
+		[Test, Ignore("Только Url может приниматься")]
 		public void CheckLink_NotLink()
 		{
 			const string url = "https://api.vk.com/method/utils.checkLink?url=hsfasfsf&v=" + VkApi.VkApiVersion ;

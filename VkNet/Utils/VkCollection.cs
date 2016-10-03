@@ -8,7 +8,7 @@ namespace VkNet.Utils
 	/// Коллекция данных возвращенных от vk.com
 	/// </summary>
 	/// <typeparam name="T">Тип данных.</typeparam>
-	public class VkCollection<T> : ReadOnlyCollection<T>, IEnumerable<T>
+	public class VkCollection<T> : ReadOnlyCollection<T>
 	{
 		/// <summary>
 		/// Общее количество элементов.

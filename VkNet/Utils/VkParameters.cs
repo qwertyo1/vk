@@ -121,7 +121,6 @@ namespace VkNet.Utils
                 return;
             }
 
-            //var offset = DateTime.Now - nullableDateTime.Value;
             var totalSeconds = (nullableDateTime.Value.ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalSeconds;
             var offset = Convert.ToInt64(totalSeconds);
 

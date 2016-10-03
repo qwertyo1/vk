@@ -40,34 +40,22 @@
         /// <summary>
         /// Возвращает признак была ли авторизация успешной.
         /// </summary>
-        public bool IsAuthorized
-        {
-            get { return AccessToken != null; }
-        }
+        public bool IsAuthorized => AccessToken != null;
 
         /// <summary>
         /// Проверяет требуется ли получения у авторизации на запрошенные приложением действия (при установке приложения пользователю).
         /// </summary>
-        public bool IsAuthorizationRequired
-        {
-            get { return GetFieldValue("__q_hash") != null; }
-        }
+        public bool IsAuthorizationRequired => GetFieldValue("__q_hash") != null;
 
         /// <summary>
         /// Маркер доступа, который необходимо использовать для доступа к API ВКонтакте.
         /// </summary>
-        public string AccessToken
-        {
-            get { return GetFieldValue("access_token"); }
-        }
+        public string AccessToken => GetFieldValue("access_token");
 
         /// <summary>
         /// Время истечения срока действия маркера доступа.
         /// </summary>
-        public string ExpiresIn
-        {
-            get { return GetFieldValue("expires_in"); }
-        }
+        public string ExpiresIn => GetFieldValue("expires_in");
 
         /// <summary>
         /// Идентификатор пользователя, у которого работает приложение (от имени которого был произведен вход).
@@ -114,17 +102,17 @@
 		/// <summary>
 		/// Наименование поля.
 		/// </summary>
-		internal sealed class NameValue
+		public sealed class NameValue
         {
 			/// <summary>
 			/// Наименование.
 			/// </summary>
-			public string Name { get; set; }
+			public string Name { get; }
 
 			/// <summary>
 			/// Значение.
 			/// </summary>
-			public string Value { get; set; }
+			public string Value { get; }
 
 			/// <summary>
 			/// Конструктор.
@@ -151,17 +139,9 @@
 		/// </summary>
 		/// <param name="url">URL.</param>
 		/// <returns>Список наименования полей.</returns>
-		private static List<NameValue> Decode(Uri url)
-        {
-			if (!string.IsNullOrEmpty(url.Query))
-			{
-				return DecodeQuery(url);
-			}
+		private static List<NameValue> Decode(Uri url) => !string.IsNullOrEmpty(url.Query) ? DecodeQuery(url) : DecodeFragment(url);
 
-            return DecodeFragment(url);
-        }
-
-		/// <summary>
+        /// <summary>
 		/// Расшифровывает вопрос.
 		/// </summary>
 		/// <param name="url">URL.</param>

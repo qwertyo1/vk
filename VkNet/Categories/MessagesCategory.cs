@@ -8,7 +8,6 @@ namespace VkNet.Categories
 #if WINDOWS_PHONE
 	using System.Net;
 #else
-	using System.Net;
 
 #endif
 
@@ -18,9 +17,7 @@ namespace VkNet.Categories
 	using System.Globalization;
 	using System.Linq;
 	using JetBrains.Annotations;
-
-	using Enums;
-	using Model;
+    using Model;
 	using Model.RequestParams;
 	using Utils;
 

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using VkNet.Enums.Filters;
 using VkNet.Model.Attachments;
-using VkNet.Utils;
 
 namespace VkNet.Categories
 {

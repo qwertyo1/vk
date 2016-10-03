@@ -6,19 +6,12 @@
 	using System.Text;
 	using HtmlAgilityPack;
 
-	using Exception;
-
 	/// <summary>
 	/// WEB форма
 	/// </summary>
 	internal sealed class WebForm
 	{
-		/// <summary>
-		/// HTML документ
-		/// </summary>
-		private readonly HtmlDocument _html;
-
-		/// <summary>
+	    /// <summary>
 		/// Коллекция input на форме
 		/// </summary>
 		private readonly Dictionary<string, string> _inputs;
@@ -47,11 +40,11 @@
 		/// <param name="result">Результат.</param>
 		private WebForm(WebCallResult result)
 		{
-			Cookies = result.Cookies;
+		    Cookies = result.Cookies;
 			OriginalUrl = result.RequestUrl.OriginalString;
 
-			_html = new HtmlDocument();
-			result.LoadResultTo(_html);
+			var html = new HtmlDocument();
+			result.LoadResultTo(html);
 
 			_responseBaseUrl = result.ResponseUrl.GetLeftPart(UriPartial.Authority);
 

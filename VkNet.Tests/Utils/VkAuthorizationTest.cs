@@ -57,6 +57,7 @@ namespace VkNet.Tests.Utils
 				var authorization = VkAuthorization.From(new Uri(urlWithBadUserId));
 
 				var userId = authorization.UserId;
+                
 			});
 
 			Assert.That(ex.Message, Is.EqualTo("UserId is not integer value."));

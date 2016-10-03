@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices.ComTypes;
 using VkNet.Exception;
 using VkNet.Model.Attachments;
 
@@ -17,12 +17,9 @@ namespace VkNet.Tests.Categories
 	[SuppressMessage("ReSharper", "PublicMembersMustHaveComments")]
 	public class MessagesCategoryTest : BaseTest
 	{
-		public MessagesCategory Cat
-		{
-			get { return GetMockedMessagesCategory(); }
-		}
+	    private MessagesCategory Cat => GetMockedMessagesCategory();
 
-		private MessagesCategory GetMockedMessagesCategory()
+	    private MessagesCategory GetMockedMessagesCategory()
 		{
 			return new MessagesCategory(Api);
 		}
@@ -632,7 +629,7 @@ namespace VkNet.Tests.Categories
 		[Test]
 		public void Send_DefaultFields_MessageId()
 		{
-			Url = "https://api.vk.com/method/messages.send?user_id=7550525&message=Test+from+vk.net+%3b)+%23+2&v=" + VkApi.VkApiVersion + "&access_token=token";
+			Url = "https://api.vk.com/method/messages.send?user_id=7550525&message=Test+from+vk.net+%3B)+%23+2&v=" + VkApi.VkApiVersion + "&access_token=token";
 			Json =
 				@"{
 					'response': 4457
@@ -649,7 +646,7 @@ namespace VkNet.Tests.Categories
 		[Test]
 		public void Send_RussianText_MessageId()
 		{
-			Url = "https://api.vk.com/method/messages.send?user_id=7550525&message=%d0%a0%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82+%23+2+--++%d0%b5%d1%89%d0%b5+%d1%80%d0%b0%d0%b7%d0%be%d0%ba&v=" + VkApi.VkApiVersion + "&access_token=token";
+			Url = "https://api.vk.com/method/messages.send?user_id=7550525&message=%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82+%23+2+--++%D0%B5%D1%89%D0%B5+%D1%80%D0%B0%D0%B7%D0%BE%D0%BA&v=" + VkApi.VkApiVersion + "&access_token=token";
 			Json =
 				@"{
 					'response': 4464
@@ -993,16 +990,17 @@ namespace VkNet.Tests.Categories
 		}
 
 		[Test]
-		[Ignore("undone")]
 		public void EditChat_NormalCase_True()
 		{
-			Url = "https://api.vk.com/method/messages.editChat?chat_id=2&title=new+title&access_token=token";
+			Url = "https://api.vk.com/method/messages.editChat?chat_id=2&title=new title&v=" + VkApi.VkApiVersion + "&access_token=token";
+                    
 			Json =
 				@"{
 					'response': 1
 				  }";
 
 			var result = Cat.EditChat(2, "new title");
+            Assert.That(result, Is.True);
 		}
 
 		[Test]

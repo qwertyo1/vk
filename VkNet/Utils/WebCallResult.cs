@@ -34,7 +34,9 @@
             ResponseUrl = responseUrl;
 
             using (var reader = new StreamReader(stream, encoding))
+            {
                 Response = reader.ReadToEnd();
+            }
         }
 
         public void LoadResultTo(HtmlDocument htmlDocument)

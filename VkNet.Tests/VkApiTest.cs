@@ -4,7 +4,6 @@
 	using System.Collections.Generic;
 	using Moq;
 	using NUnit.Framework;
-	using Exception;
 	using Enums.Filters;
 	using VkNet.Utils;
 
@@ -89,11 +88,9 @@
 		{
 			Json = @"{ ""response"": 2 }";
 			Api.RequestsPerSecond = 3; // Переопределение значения в базовом классе
-			var invocationCount = 0;
 			Mock.Get(Api.Browser)
 				.Setup(m => m.GetJson(It.IsAny<string>()))
-				.Returns(Json)
-				.Callback(delegate { invocationCount++; });
+				.Returns(Json);
 
 			var start = DateTimeOffset.Now;
 			while (true)

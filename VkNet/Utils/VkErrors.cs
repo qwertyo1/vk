@@ -93,19 +93,18 @@
         private static Tuple<string, T> ThrowIfNumberIsNegative<T>(Expression<T> expr)
         {
             if (expr == null)
-                throw new ArgumentNullException("expr");
+            {
+                throw new ArgumentNullException(nameof(expr));
+            }
 
             var name = string.Empty;
 
             // Если значение передатеся из вызывающего метода
             var unary = expr.Body as UnaryExpression;
-            if (unary != null)
+            var member = unary?.Operand as MemberExpression;
+            if (member != null)
             {
-                var member = unary.Operand as MemberExpression;
-                if (member != null)
-                {
-                    name = member.Member.Name;
-                }
+                name = member.Member.Name;
             }
 
             // Если в метод передается значение напрямую
@@ -141,7 +140,9 @@
 
             var response = obj["error"];
             if (response == null)
+            {
                 return;
+            }
 
             var code = (int)response["error_code"];
             var message = (string)response["error_msg"];

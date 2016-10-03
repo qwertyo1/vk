@@ -13,7 +13,7 @@ namespace VkNet.Tests.Categories
 	[SuppressMessage("ReSharper", "PublicMembersMustHaveComments")]
 	public class PhotosCategoryTest : BaseTest
 	{
-        public PhotoCategory GetMockedPhotosCategory(string url, string json)
+	    private PhotoCategory GetMockedPhotosCategory(string url, string json)
         {
             Json = json;
             Url = url;
@@ -404,7 +404,7 @@ namespace VkNet.Tests.Categories
 		[Test]
         public void Search_NormalCase()
         {
-			const string url = "https://api.vk.com/method/photos.search?q=%d0%bf%d0%be%d1%80%d0%bd%d0%be&offset=2&count=3&v=" + VkApi.VkApiVersion ;
+			const string url = "https://api.vk.com/method/photos.search?q=%D0%BF%D0%BE%D1%80%D0%BD%D0%BE&offset=2&count=3&v="  + VkApi.VkApiVersion ;
 			const string json =
                 @"{
                     'response': {

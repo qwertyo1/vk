@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Xml.Serialization;
-
-namespace VkNet.Exception
+﻿namespace VkNet.Exception
 {
     using System;
     using System.Runtime.Serialization;
